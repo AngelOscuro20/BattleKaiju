@@ -1,0 +1,2 @@
+# BattleKaiju
+ Mascota Virtual RPG
