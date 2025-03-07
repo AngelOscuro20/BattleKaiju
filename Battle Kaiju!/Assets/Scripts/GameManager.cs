@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,23 @@ public class GameManager : MonoBehaviour
     int stage;
     int hungerMeter = 5;
     bool callingHunger = false;
+
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        // Configuración del Singleton para asegurar una única instancia
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // Persistir entre escenas
+        }
+        else
+        {
+            Destroy(gameObject); // Destruir duplicados
+            return;
+        }
+    }
     void Start()
     {
         Debug.Log("Hambre actual: " + hungerMeter);
@@ -66,5 +84,12 @@ public class GameManager : MonoBehaviour
             Debug.Log("Care Mistakes: " + careMistakes);
             callingHunger = false;
         }
+    }
+
+    public void Eat() 
+    {
+        hungerMeter++;
+        if (hungerMeter > 6) { hungerMeter = 6; }
+        Debug.Log("Hambre actual: " + hungerMeter);
     }
 }
