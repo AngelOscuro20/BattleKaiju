@@ -6,7 +6,6 @@ public class AlimentarScript : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        Debug.Log("click");
         GameManager.instance.Eat();
     }
 }

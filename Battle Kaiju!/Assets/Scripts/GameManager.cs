@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     int careMistakes = 0;
     int stage;
     int hungerMeter = 5;
+    int trainingMeter = 5;
     bool callingHunger = false;
+    bool callingTraining = false;
 
     public static GameManager instance;
 
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Hambre actual: " + hungerMeter);
         Debug.Log("Care Mistakes: " + careMistakes);
         InvokeRepeating("HungerDrop", 5, 5);
+        InvokeRepeating("TrainingDrop", 5, 5);
     }
 
     // Update is called once per frame
@@ -42,7 +45,7 @@ public class GameManager : MonoBehaviour
         timer += Time.deltaTime;
         //Debug.Log(timer);
 
-        if (callingHunger) { CheckCareMistake(); }
+        if (callingHunger || callingTraining) { CheckCareMistake(); }
     }
 
     void HungerDrop()
@@ -61,17 +64,40 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-   //tipo hace referencia a el tipo de call, es un por si acaso a futuro.
+
+    void TrainingDrop()
+    {
+        if (!callingTraining)
+        {
+            if (trainingMeter > 0)
+            {
+                trainingMeter--;
+                Debug.Log("Training actual: " + trainingMeter);
+            }
+            else
+            {
+                trainingMeter = 0;
+                Call(1);
+            }
+        }
+    }
+    //tipo hace referencia a el tipo de call, es un por si acaso a futuro.
     void Call(int tipo) {
-        Debug.Log("Calling");
+        
         //Play sound
         switch (tipo)
         {
-
+            //Hambre
             case 0:
+                Debug.Log("Calling Hunger");
                 callTime = timer;
                 callingHunger = true;
             break;
+            //Entrenamiento
+            case 1: Debug.Log("Calling Training");
+                callTime = timer;
+                callingTraining = true;
+                break;
             default: break;
         }
     
@@ -79,17 +105,28 @@ public class GameManager : MonoBehaviour
 
     void CheckCareMistake() {
 
-        if (callTime + 30 < timer) { 
-            careMistakes++; 
+        if (callTime + 30 < timer) {
+            if (callingHunger && callingTraining) { careMistakes += 2; }
+            else { careMistakes++; }
             Debug.Log("Care Mistakes: " + careMistakes);
-            callingHunger = false;
+            if (callingHunger) { callingHunger = false; }
+            if (callingTraining) { callingTraining = false; }
         }
     }
 
     public void Eat() 
     {
         hungerMeter++;
-        if (hungerMeter > 6) { hungerMeter = 6; }
+        if (hungerMeter > 5) { hungerMeter = 5; }
         Debug.Log("Hambre actual: " + hungerMeter);
+        if (callingHunger) { callingHunger = false; }
+    }
+
+    public void Train()
+    {
+        trainingMeter++;
+        if (trainingMeter > 5) { trainingMeter = 5; }
+        Debug.Log("Barra de entrenamiento: " + trainingMeter);
+        if (callingTraining) { callingTraining = false; }
     }
 }
