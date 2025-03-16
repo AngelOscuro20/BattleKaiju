@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
+
 
 public class Movement : MonoBehaviour
 {
     int Dir;
     Rigidbody2D rg2d;
-    int speed = 1;
+    float speed;
     bool petting = false;
-
+    Animator animator;
+    float animspeed;
  
     void Start()
     {
         rg2d = GetComponent<Rigidbody2D>();
-        InvokeRepeating("Wander", 2, 2);
+        InvokeRepeating("Wander", 5, 5);
+        speed = GetComponent<Stats>().speed * 0.1f;
+        animator = this.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -22,23 +27,23 @@ public class Movement : MonoBehaviour
     }
 
     private void Wander() {
+        
         if (!petting)
         {
             randomDirCall();
             switch (Dir)
             {
                 case 0: break;
-                case 1: rg2d.AddForce(transform.right * speed, ForceMode2D.Impulse); break;
-                case 2: rg2d.AddForce(transform.right * -speed, ForceMode2D.Impulse); break;
-                case 3: rg2d.AddForce(transform.up * speed, ForceMode2D.Impulse); break;
-                case 4: rg2d.AddForce(transform.up * -speed, ForceMode2D.Impulse); break;
-                case 5: rg2d.AddForce(transform.right * speed, ForceMode2D.Impulse); rg2d.AddForce(transform.up * speed, ForceMode2D.Impulse); break;
-                case 6: rg2d.AddForce(transform.right * speed, ForceMode2D.Impulse); rg2d.AddForce(transform.up * -speed, ForceMode2D.Impulse); break;
-                case 7: rg2d.AddForce(transform.right * -speed, ForceMode2D.Impulse); rg2d.AddForce(transform.up * speed, ForceMode2D.Impulse); break;
-                case 8: rg2d.AddForce(transform.right * -speed, ForceMode2D.Impulse); rg2d.AddForce(transform.up * -speed, ForceMode2D.Impulse); break;
+                case 1: rg2d.AddForce(transform.right * speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 2: rg2d.AddForce(transform.right * -speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 3: rg2d.AddForce(transform.up * speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 4: rg2d.AddForce(transform.up * -speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 5: rg2d.AddForce(transform.right * speed, ForceMode2D.Impulse);  rg2d.AddForce(transform.up * speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 6: rg2d.AddForce(transform.right * speed, ForceMode2D.Impulse);  rg2d.AddForce(transform.up * -speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 7: rg2d.AddForce(transform.right * -speed, ForceMode2D.Impulse); rg2d.AddForce(transform.up * speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 8: rg2d.AddForce(transform.right * -speed, ForceMode2D.Impulse); rg2d.AddForce(transform.up * -speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
                 default: break;
             }
-
         }
     }
 
