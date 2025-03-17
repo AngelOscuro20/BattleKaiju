@@ -357,6 +357,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kaiju2: {fileID: 1710656985438345002, guid: 4fc876bf5d06d854ca8c31bbf3109f32, type: 3}
   kaiju3: {fileID: 8482294072781018076, guid: f111ec552c554f741be1f3455749493d, type: 3}
+  kaiju4: {fileID: 5543618625426497481, guid: fc1004e3a9a68c746923a274957441a6, type: 3}
+  kaiju5: {fileID: 2555071586055627675, guid: d70980fb11d359f4983118246bdc9805, type: 3}
+  kaiju6: {fileID: 4654314173374530363, guid: def70f7d80cecac48a3370df733e571e, type: 3}
+  kaiju7: {fileID: 1510648718925014547, guid: bae8f698d78222a49901d8d08789a240, type: 3}
+  kaiju8: {fileID: 8179929639942026539, guid: 877c4011132b9024d87b05e1e180d324, type: 3}
 --- !u!1 &265059786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,6 +1067,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 86fc20686ca010f49b3c0cdc01379b33, type: 3}
+    - target: {fileID: 860749655659450708, guid: 46ce0879676d9a64cb64ca30aab32b63, type: 3}
+      propertyPath: evolutiontime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4131100307467560802, guid: 46ce0879676d9a64cb64ca30aab32b63, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.447
