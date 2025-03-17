@@ -355,6 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7390ade06ddf5b84e85e8ec3fb0356bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kaiju2: {fileID: 1710656985438345002, guid: 4fc876bf5d06d854ca8c31bbf3109f32, type: 3}
+  kaiju3: {fileID: 8482294072781018076, guid: f111ec552c554f741be1f3455749493d, type: 3}
 --- !u!1 &265059786
 GameObject:
   m_ObjectHideFlags: 0
