@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     bool triedEvolving = false; 
     public static GameManager instance;
     GameObject kaijuActual;
+    Animator animatorKaiju;
     public GameObject kaiju2;
     public GameObject kaiju3;
     public GameObject kaiju4;
@@ -27,6 +28,11 @@ public class GameManager : MonoBehaviour
     public GameObject kaiju6;
     public GameObject kaiju7;
     public GameObject kaiju8;
+    public GameObject kaiju9;
+    public GameObject kaiju10;
+    public GameObject kaiju11;
+    public GameObject kaiju12;
+    public GameObject kaiju13;
     private void Awake()
     {
         // Configuración del Singleton para asegurar una única instancia
@@ -45,6 +51,7 @@ public class GameManager : MonoBehaviour
     {
         //Buscamos el kaiju actual, su id y su tiempo de evolución
         kaijuActual = GameObject.FindGameObjectWithTag("kaiju");
+        animatorKaiju = kaijuActual.GetComponentInChildren<Animator>();
         IDKaiju = kaijuActual.GetComponent<Stats>().ID;
         evoTime = kaijuActual.GetComponent<Stats>().evolutiontime;
         Debug.Log("ID actual =" + IDKaiju);
@@ -144,6 +151,7 @@ public class GameManager : MonoBehaviour
 
     public void Eat() 
     {
+        animatorKaiju.Play("Comer");
         hungerMeter++;
         if (hungerMeter > 5) { hungerMeter = 5; }
         Debug.Log("Hambre actual: " + hungerMeter);
@@ -215,7 +223,43 @@ public class GameManager : MonoBehaviour
                     kaijuNuevo.transform.position = kaijuActual.transform.position;
                 }
             ;break;
-            //samuiso
+
+            //samuiso y castellaso
+            case 4:
+            case 5:
+                if (careMistakes < 2)
+                {
+                    kaijuNuevo = Instantiate<GameObject>(kaiju9);
+                    kaijuNuevo.transform.position = kaijuActual.transform.position;
+                }
+                ;break;
+            //oinchoso
+            case 6:
+                kaijuNuevo = Instantiate<GameObject>(kaiju10);
+                kaijuNuevo.transform.position = kaijuActual.transform.position;
+                ;break;
+
+            //evaestruso y rainayaso 
+            case 7:
+            case 8:
+                if (careMistakes < 2)
+                {
+                    kaijuNuevo = Instantiate<GameObject>(kaiju11);
+                    kaijuNuevo.transform.position = kaijuActual.transform.position;
+                }
+                ; break;
+
+            //tarotugaso
+            case 9:
+                kaijuNuevo = Instantiate<GameObject>(kaiju12);
+                kaijuNuevo.transform.position = kaijuActual.transform.position;
+                ;break;
+
+            //coppertauroso
+            case 11:
+                kaijuNuevo = Instantiate<GameObject>(kaiju13);
+                kaijuNuevo.transform.position = kaijuActual.transform.position;
+                ; break;
             // Esto es para no tener que escribir las dos lineas siguientes en cada caso del switch.
             default:;break; 
         }
@@ -225,6 +269,7 @@ public class GameManager : MonoBehaviour
             kaijuActual = kaijuNuevo;
             IDKaiju = kaijuActual.GetComponent<Stats>().ID;
             evoTime = kaijuActual.GetComponent<Stats>().evolutiontime;
+            animatorKaiju = kaijuActual.GetComponentInChildren<Animator>();
             careMistakes = 0;
         }
         else { triedEvolving = true; }
