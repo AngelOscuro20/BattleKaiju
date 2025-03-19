@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public GameObject kaiju11;
     public GameObject kaiju12;
     public GameObject kaiju13;
+    GameObject callCircle;
     private void Awake()
     {
         // Configuración del Singleton para asegurar una única instancia
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     {
         //Buscamos el kaiju actual, su id y su tiempo de evolución
         kaijuActual = GameObject.FindGameObjectWithTag("kaiju");
+        callCircle = GameObject.Find("CircleCall");
         animatorKaiju = kaijuActual.GetComponentInChildren<Animator>();
         IDKaiju = kaijuActual.GetComponent<Stats>().ID;
         evoTime = kaijuActual.GetComponent<Stats>().evolutiontime;
@@ -62,6 +64,8 @@ public class GameManager : MonoBehaviour
         //Iniciamos las rutina de hambre y entrenamiento
         InvokeRepeating("HungerDrop", 5, 5);
         InvokeRepeating("TrainingDrop", 5, 5);
+
+        callCircle.SetActive(false);
     }
 
     // Update is called once per frame
@@ -72,7 +76,7 @@ public class GameManager : MonoBehaviour
         //Debug.Log(timer);
 
         //Si se está llamando a un care mistake, se comprueba el contador
-        if (callingHunger || callingTraining) { CheckCareMistake(); }
+        if (callingHunger || callingTraining) { CheckCareMistake();}
 
         //Si el timer es mayor que el evolution timer,se llama al metodo de evolucion
         if (timer > evoTime && !triedEvolving) {evolution(); }
@@ -126,11 +130,14 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Calling Hunger");
                 callTime = timer;
                 callingHunger = true;
-            break;
+                callCircle.SetActive(true);
+
+                break;
             //Entrenamiento
             case 1: Debug.Log("Calling Training");
                 callTime = timer;
                 callingTraining = true;
+                callCircle.SetActive(true);
                 break;
             default: break;
         }
@@ -141,10 +148,10 @@ public class GameManager : MonoBehaviour
 
         //Si el han pasado X segundos desde que se registró la llamada, se suma uno o dos cares mistakes
         if (callTime + 30 < timer) {
-            if (callingHunger && callingTraining) { careMistakes += 2; }
-            else { careMistakes++; }
+            if (callingHunger && callingTraining) { careMistakes += 2; callCircle.SetActive(false); }
+            else { careMistakes++; callCircle.SetActive(false); }
             Debug.Log("Care Mistakes: " + careMistakes);
-            if (callingHunger) { callingHunger = false; }
+            if (callingHunger) { callingHunger = false;  }
             if (callingTraining) { callingTraining = false; }
         }
     }
@@ -155,7 +162,7 @@ public class GameManager : MonoBehaviour
         hungerMeter++;
         if (hungerMeter > 5) { hungerMeter = 5; }
         Debug.Log("Hambre actual: " + hungerMeter);
-        if (callingHunger) { callingHunger = false; }
+        if (callingHunger) { callingHunger = false; callCircle.SetActive(false); }
     }
 
     public void Train()
@@ -163,7 +170,7 @@ public class GameManager : MonoBehaviour
         trainingMeter++;
         if (trainingMeter > 5) { trainingMeter = 5; }
         Debug.Log("Barra de entrenamiento: " + trainingMeter);
-        if (callingTraining) { callingTraining = false; }
+        if (callingTraining) { callingTraining = false; callCircle.SetActive(false); }
     }
 
     void evolution() {
