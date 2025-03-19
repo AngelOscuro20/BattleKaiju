@@ -12,13 +12,16 @@ public class Movement : MonoBehaviour
     bool petting = false;
     Animator animator;
     float animspeed;
- 
+    SpriteRenderer spriteKaiju;
+
+
     void Start()
     {
         rg2d = GetComponent<Rigidbody2D>();
         InvokeRepeating("Wander", 5, 5);
         speed = GetComponent<Stats>().speed * 0.1f;
         animator = this.GetComponentInChildren<Animator>();
+        spriteKaiju = this.GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -34,14 +37,14 @@ public class Movement : MonoBehaviour
             switch (Dir)
             {
                 case 0: break;
-                case 1: rg2d.AddForce(transform.right * speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
-                case 2: rg2d.AddForce(transform.right * -speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
-                case 3: rg2d.AddForce(transform.up * speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
-                case 4: rg2d.AddForce(transform.up * -speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
-                case 5: rg2d.AddForce(transform.right * speed, ForceMode2D.Impulse);  rg2d.AddForce(transform.up * speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
-                case 6: rg2d.AddForce(transform.right * speed, ForceMode2D.Impulse);  rg2d.AddForce(transform.up * -speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
-                case 7: rg2d.AddForce(transform.right * -speed, ForceMode2D.Impulse); rg2d.AddForce(transform.up * speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
-                case 8: rg2d.AddForce(transform.right * -speed, ForceMode2D.Impulse); rg2d.AddForce(transform.up * -speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 1: spriteKaiju.flipX = true; rg2d.AddForce(transform.right * speed, ForceMode2D.Impulse);animator.Play("Mover"); break;
+                case 2: spriteKaiju.flipX = false; rg2d.AddForce(transform.right * -speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 3: spriteKaiju.flipX = false; rg2d.AddForce(transform.up * speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 4: spriteKaiju.flipX = false; rg2d.AddForce(transform.up * -speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 5: spriteKaiju.flipX = true; rg2d.AddForce(transform.right * speed, ForceMode2D.Impulse);  rg2d.AddForce(transform.up * speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 6: spriteKaiju.flipX = true; rg2d.AddForce(transform.right * speed, ForceMode2D.Impulse);  rg2d.AddForce(transform.up * -speed, ForceMode2D.Impulse); animator.Play("Mover");break;
+                case 7: spriteKaiju.flipX = false; rg2d.AddForce(transform.right * -speed, ForceMode2D.Impulse); rg2d.AddForce(transform.up * speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
+                case 8: spriteKaiju.flipX = false; rg2d.AddForce(transform.right * -speed, ForceMode2D.Impulse); rg2d.AddForce(transform.up * -speed, ForceMode2D.Impulse); animator.Play("Mover"); break;
                 default: break;
             }
         }
