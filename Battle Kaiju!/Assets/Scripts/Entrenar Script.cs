@@ -6,6 +6,6 @@ public class EntrenarScript : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        GameManager.instance.Train();
+        GameManager.Instance.Train();
     }
 }

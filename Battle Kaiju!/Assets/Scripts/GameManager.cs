@@ -5,7 +5,7 @@ using System.Data.SqlTypes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     float timer = 0;
     float callTime;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     float evoTime;
     int IDKaiju;
     bool triedEvolving = false; 
-    public static GameManager instance;
+    //public static GameManager instance;
     GameObject kaijuActual;
     Animator animatorKaiju;
     public GameObject kaiju2;
@@ -34,20 +34,7 @@ public class GameManager : MonoBehaviour
     public GameObject kaiju12;
     public GameObject kaiju13;
     GameObject callCircle;
-    private void Awake()
-    {
-        // Configuración del Singleton para asegurar una única instancia
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject); // Persistir entre escenas
-        }
-        else
-        {
-            Destroy(gameObject); // Destruir duplicados
-            return;
-        }
-    }
+    
     void Start()
     {
         //Buscamos el kaiju actual, su id y su tiempo de evolución
@@ -284,5 +271,30 @@ public class GameManager : MonoBehaviour
         Debug.Log("Care Mistakes: " + careMistakes);
         Debug.Log("ID actual =" + IDKaiju);
         Debug.Log("Evolution timer = " + evoTime);
+    }
+
+
+    //Para pasar de una escena a otra 
+    public float interLevelWaitTime = 3f;
+    public void GoToNextScene(float waitTime = -1)
+    {
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
+        {
+            Debug.Log("YOU WIN!");
+        }
+        else
+        {
+            Debug.Log("Prepare for next scene!");
+            StartCoroutine(WaitAndLoadNextScene(waitTime));
+        }
+    }
+    private IEnumerator WaitAndLoadNextScene(float waitSeconds)
+    {
+        if (waitSeconds < 0)
+        {
+            waitSeconds = interLevelWaitTime;
+        }
+        yield return new WaitForSeconds(waitSeconds);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
