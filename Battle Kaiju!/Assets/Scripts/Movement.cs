@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     Animator animator;
     float animspeed;
     SpriteRenderer spriteKaiju;
-
+    ParticleSystem particulasPetting;
 
     void Start()
     {
@@ -22,6 +22,8 @@ public class Movement : MonoBehaviour
         speed = GetComponent<Stats>().speed * 0.1f;
         animator = this.GetComponentInChildren<Animator>();
         spriteKaiju = this.GetComponentInChildren<SpriteRenderer>();
+        particulasPetting = this.GetComponent<ParticleSystem>();
+        particulasPetting.Pause();
     }
 
     // Update is called once per frame
@@ -61,11 +63,13 @@ public class Movement : MonoBehaviour
         Debug.Log("Petting");
         rg2d.AddForce(transform.right * 0.4f);
         rg2d.AddForce(transform.right * -0.4f);
+        particulasPetting.Play();
     }
 
     private void OnMouseExit()
     {
         Debug.Log("Stopped petting");
         petting = false;
+        particulasPetting.Stop();
     }
 }

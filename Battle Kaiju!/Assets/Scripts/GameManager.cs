@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("HungerDrop", 5, 5);
         InvokeRepeating("TrainingDrop", 5, 5);
 
-        callCircle.SetActive(false);
+        callCircle.SetActive(false);        
     }
 
     // Update is called once per frame
