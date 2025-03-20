@@ -18,7 +18,7 @@ public class GameManager : Singleton<GameManager>
     float evoTime;
     int IDKaiju;
     bool triedEvolving = false; 
-    //public static GameManager instance;
+  
     GameObject kaijuActual;
     Animator animatorKaiju;
     public GameObject kaiju2;
