@@ -15,7 +15,7 @@ public class GameManager : Singleton<GameManager>
     int trainingMeter = 5;
     bool callingHunger = false;
     bool callingTraining = false;
-    float evoTime;
+    float evoTime =100000;
     int IDKaiju;
     bool triedEvolving = false; 
   
@@ -37,6 +37,7 @@ public class GameManager : Singleton<GameManager>
     
     void Start()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         //Buscamos el kaiju actual, su id y su tiempo de evolución
         kaijuActual = GameObject.FindGameObjectWithTag("kaiju");
         callCircle = GameObject.Find("CircleCall");
@@ -52,13 +53,34 @@ public class GameManager : Singleton<GameManager>
         InvokeRepeating("HungerDrop", 5, 5);
         InvokeRepeating("TrainingDrop", 5, 5);
 
-        callCircle.SetActive(false);        
+        callCircle.SetActive(false);
     }
 
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+
+        //Buscamos el kaiju actual, su id y su tiempo de evolución
+        kaijuActual = GameObject.FindGameObjectWithTag("kaiju");
+        callCircle = GameObject.Find("CircleCall");
+        animatorKaiju = kaijuActual.GetComponentInChildren<Animator>();
+        IDKaiju = kaijuActual.GetComponent<Stats>().ID;
+        evoTime = kaijuActual.GetComponent<Stats>().evolutiontime;
+        Debug.Log("ID actual =" + IDKaiju);
+        Debug.Log("Evolution timer = " + evoTime);
+        Debug.Log("Hambre actual: " + hungerMeter);
+        Debug.Log("Care Mistakes: " + careMistakes);
+
+        //Iniciamos las rutina de hambre y entrenamiento
+        InvokeRepeating("HungerDrop", 5, 5);
+        InvokeRepeating("TrainingDrop", 5, 5);
+
+        callCircle.SetActive(false);
+
+    }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C)) { careMistakes++; Debug.Log("Care Mistakes: " + careMistakes); }
+        if (Input.GetKeyDown(KeyCode.T)) { timer+= 10; Debug.Log("Timer: " + timer); }
         timer += Time.deltaTime;
         //Debug.Log(timer);
 
@@ -66,7 +88,7 @@ public class GameManager : Singleton<GameManager>
         if (callingHunger || callingTraining) { CheckCareMistake();}
 
         //Si el timer es mayor que el evolution timer,se llama al metodo de evolucion
-        if (timer > evoTime && !triedEvolving) {evolution(); }
+        if (timer > evoTime && !triedEvolving) { evolution(); } else { if(triedEvolving)Debug.Log("Ya ha intentado evolucionar"); }
     }
 
     void HungerDrop()

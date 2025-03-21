@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4
-  evolutiontime: 30
+  evolutiontime: 120
   attack: 100
   HP: 100
   Defense: 100
