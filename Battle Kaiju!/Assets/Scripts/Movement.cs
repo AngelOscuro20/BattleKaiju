@@ -20,8 +20,8 @@ public class Movement : MonoBehaviour
         rg2d = GetComponent<Rigidbody2D>();
         InvokeRepeating("Wander", 5, 5);
         speed = GetComponent<Stats>().speed * 0.1f;
-        animator = this.GetComponentInChildren<Animator>();
-        spriteKaiju = this.GetComponentInChildren<SpriteRenderer>();
+        animator = this.GetComponent<Animator>();
+        spriteKaiju = this.GetComponent<SpriteRenderer>();
         particulasPetting = this.GetComponent<ParticleSystem>();
         particulasPetting.Pause();
     }
