@@ -159,6 +159,7 @@ public class CareManager : Singleton<CareManager>
         if (hungerMeter > 5) { hungerMeter = 5; }
         Debug.Log("Hambre actual: " + hungerMeter);
         if (callingHunger) { callingHunger = false; callCircle.SetActive(false); }
+       
     }
 
     public void Train()
@@ -172,6 +173,12 @@ public class CareManager : Singleton<CareManager>
     public int getCareMistakes() {
     return careMistakes;
     }
+
+    public int getHunger()
+    {
+        return hungerMeter;
+    }
+
 
     public void setKaijuActual(GameObject kaijuNuevo) {
         Debug.Log("Seteando nuevo kaiju");
