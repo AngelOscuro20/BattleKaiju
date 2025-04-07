@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class uiscript : MonoBehaviour
 {
     int hungerMeter;
-    
+    public GameObject OrganizadorHambre;
 
 
     // Start is called before the first frame update
@@ -24,9 +24,9 @@ public class uiscript : MonoBehaviour
         hungerMeter = CareManager.Instance.getHunger();
         if (hungerMeter == 5)
         {
-            for (int i = 0; i < this.transform.childCount; i++)
+            for (int i = 0; i < OrganizadorHambre.transform.childCount; i++)
             {
-                var child = this.transform.GetChild(i).gameObject;
+                var child = OrganizadorHambre.transform.GetChild(i).gameObject;
                 if (child.activeSelf == false)
                     child.SetActive(true);
             }
@@ -35,9 +35,9 @@ public class uiscript : MonoBehaviour
 
         if (hungerMeter == 4)
         {
-            for (int i = 0; i < this.transform.childCount; i++)
+            for (int i = 0; i < OrganizadorHambre.transform.childCount; i++)
             {
-                var child = this.transform.GetChild(i).gameObject;
+                var child = OrganizadorHambre.transform.GetChild(i).gameObject;
                 if (i < 4)
                 {
                     if (child.activeSelf == false)
@@ -51,9 +51,9 @@ public class uiscript : MonoBehaviour
 
         if (hungerMeter == 3)
         {
-            for (int i = 0; i < this.transform.childCount; i++)
+            for (int i = 0; i < OrganizadorHambre.transform.childCount; i++)
             {
-                var child = this.transform.GetChild(i).gameObject;
+                var child = OrganizadorHambre.transform.GetChild(i).gameObject;
                 if (i < 3)
                 {
                     if (child.activeSelf == false)
@@ -66,9 +66,9 @@ public class uiscript : MonoBehaviour
 
         if (hungerMeter == 2)
         {
-            for (int i = 0; i < this.transform.childCount; i++)
+            for (int i = 0; i < OrganizadorHambre.transform.childCount; i++)
             {
-                var child = this.transform.GetChild(i).gameObject;
+                var child = OrganizadorHambre.transform.GetChild(i).gameObject;
                 if (i < 2)
                 {
                     if (child.activeSelf == false)
@@ -81,9 +81,9 @@ public class uiscript : MonoBehaviour
 
         if (hungerMeter == 1)
         {
-            for (int i = 0; i < this.transform.childCount; i++)
+            for (int i = 0; i < OrganizadorHambre.transform.childCount; i++)
             {
-                var child = this.transform.GetChild(i).gameObject;
+                var child = OrganizadorHambre.transform.GetChild(i).gameObject;
                 if (i < 1)
                 {
                     if (child.activeSelf == false)
@@ -96,9 +96,9 @@ public class uiscript : MonoBehaviour
 
         if (hungerMeter == 0)
         {
-            for (int i = 0; i < this.transform.childCount; i++)
+            for (int i = 0; i < OrganizadorHambre.transform.childCount; i++)
             {
-                var child = this.transform.GetChild(i).gameObject;
+                var child = OrganizadorHambre.transform.GetChild(i).gameObject;
                 if (child != null)
                     child.SetActive(false);
             }

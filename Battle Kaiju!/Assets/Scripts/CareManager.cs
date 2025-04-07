@@ -179,6 +179,11 @@ public class CareManager : Singleton<CareManager>
         return hungerMeter;
     }
 
+    public int getTraining()
+    {
+        return trainingMeter;
+    }
+
 
     public void setKaijuActual(GameObject kaijuNuevo) {
         Debug.Log("Seteando nuevo kaiju");
