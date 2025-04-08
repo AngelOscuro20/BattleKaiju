@@ -6,6 +6,10 @@ TagManager:
   tags:
   - kaiju
   - CareManager
+  - VidaFondo
+  - VidaMarco
+  - VidaFondoEnemigo
+  - VidaMarcoEnemigo
   layers:
   - Default
   - TransparentFX

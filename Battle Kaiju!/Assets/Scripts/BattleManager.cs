@@ -27,7 +27,11 @@ public class BattleManager : Singleton<BattleManager>
 
     public Animator animatorKaijuJugador;
     public Animator animatorKaijuEnemigo;
-    // Start is called before the first frame update
+
+    public RectTransform rectTransformVidaFondo;
+    public RectTransform rectTransformVidaMarco;
+    public RectTransform rectTransformVidaFondoEnemigo;
+    public RectTransform rectTransformVidaMarcoEnemigo;
     void Start()
     {
         GameObject.FindGameObjectWithTag("CareManager").GetComponent<CareManager>().enabled = false;
@@ -43,6 +47,16 @@ public class BattleManager : Singleton<BattleManager>
         kaijuJugador.GetComponent<Movement>().enabled = false;
         kaijuJugador.transform.position = new Vector3(-5f,-0.5f,-1f);
         kaijuJugador.GetComponent<SpriteRenderer>().flipX = true;
+
+        rectTransformVidaMarco = GameObject.FindGameObjectWithTag("VidaMarco").GetComponent<RectTransform>();
+        rectTransformVidaFondo = GameObject.FindGameObjectWithTag("VidaFondo").GetComponent<RectTransform>();
+        rectTransformVidaMarcoEnemigo = GameObject.FindGameObjectWithTag("VidaMarcoEnemigo").GetComponent<RectTransform>();
+        rectTransformVidaFondoEnemigo = GameObject.FindGameObjectWithTag("VidaFondoEnemigo").GetComponent<RectTransform>();
+
+        rectTransformVidaMarco.sizeDelta = new Vector2(vidaActualJugador*2, 25);
+        rectTransformVidaFondo.sizeDelta = new Vector2(vidaActualJugador*2, 25);
+        rectTransformVidaMarcoEnemigo.sizeDelta = new Vector2(vidaActualEnemigo * 2, 25);
+        rectTransformVidaFondoEnemigo.sizeDelta = new Vector2(vidaActualEnemigo * 2, 25);
     }
 
     // Update is called once per frame
@@ -64,6 +78,10 @@ public class BattleManager : Singleton<BattleManager>
         
             vidaActualEnemigo = vidaActualEnemigo - (int)danyoJugador;
             vidaActualJugador = vidaActualJugador - (int)danyoEnemigo;
+        if(vidaActualEnemigo<0) {vidaActualEnemigo = 0; /*cambiarKaijuEnemigo();*/}
+        if(vidaActualJugador<0) {vidaActualJugador = 0; /*peleaPerdida();*/} 
+        rectTransformVidaFondo.sizeDelta = new Vector2(vidaActualJugador*2, 25);
+        rectTransformVidaFondoEnemigo.sizeDelta = new Vector2(vidaActualEnemigo * 2, 25);
     }
 
     public void ataqueEnemigo()
