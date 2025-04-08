@@ -15,6 +15,10 @@ public class Movement : MonoBehaviour
     SpriteRenderer spriteKaiju;
     ParticleSystem particulasPetting;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Start()
     {
         rg2d = GetComponent<Rigidbody2D>();
@@ -33,7 +37,7 @@ public class Movement : MonoBehaviour
 
     private void Wander() {
         
-        if (!petting)
+        if (!petting && enabled)
         {
             randomDirCall();
             switch (Dir)
@@ -59,11 +63,13 @@ public class Movement : MonoBehaviour
 
     private void OnMouseOver()
     {
+        if(enabled) {
         petting = true;
         Debug.Log("Petting");
         rg2d.AddForce(transform.right * 0.4f);
         rg2d.AddForce(transform.right * -0.4f);
         particulasPetting.Play();
+        }
     }
 
     private void OnMouseExit()

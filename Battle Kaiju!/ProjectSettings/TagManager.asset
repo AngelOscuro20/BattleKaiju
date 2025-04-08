@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - kaiju
+  - CareManager
   layers:
   - Default
   - TransparentFX

@@ -47,7 +47,7 @@ public class CareManager : Singleton<CareManager>
 
         if (Input.GetKeyDown(KeyCode.C)) { careMistakes++; Debug.Log("Care Mistakes: " + careMistakes); }
         if (Input.GetKeyDown(KeyCode.T)) { timer += 10; Debug.Log("Timer: " + timer); }
-        timer += Time.deltaTime;
+        if(enabled) timer += Time.deltaTime;
         //Debug.Log(timer);
 
         //Si se está llamando a un care mistake, se comprueba el contador
@@ -76,7 +76,7 @@ public class CareManager : Singleton<CareManager>
 
     void HungerDrop()
     {
-        if (!callingHunger)
+        if (!callingHunger && enabled)
         {
             //Si el hambre es mayor que cero, se reduce
             if (hungerMeter > 0)
@@ -95,7 +95,7 @@ public class CareManager : Singleton<CareManager>
 
     void TrainingDrop()
     {
-        if (!callingTraining)
+        if (!callingTraining  && enabled)
         {
             //Si el entrenamiento es mayor que cero, se reduce
             if (trainingMeter > 0)
@@ -194,4 +194,6 @@ public class CareManager : Singleton<CareManager>
 
 
     }
+
+    
 }

@@ -30,7 +30,8 @@ public class BattleManager : Singleton<BattleManager>
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject.FindGameObjectWithTag("CareManager").GetComponent<CareManager>().enabled = false;
+        kaijuJugador = GameObject.FindGameObjectWithTag("kaiju");
         animatorKaijuJugador = kaijuJugador.GetComponent<Animator>();
         kaijuJugadorStats = kaijuJugador.GetComponent<Stats>();
         vidaActualJugador =  kaijuJugadorStats.HP;
@@ -38,6 +39,10 @@ public class BattleManager : Singleton<BattleManager>
         kaijuEnemigoStats = kaijuEnemigoActual.GetComponent<Stats>();
         animatorKaijuEnemigo = kaijuEnemigoActual.GetComponent<Animator>();
         vidaActualEnemigo = kaijuEnemigoStats.HP;
+
+        kaijuJugador.GetComponent<Movement>().enabled = false;
+        kaijuJugador.transform.position = new Vector3(-5f,-0.5f,-1f);
+        kaijuJugador.GetComponent<SpriteRenderer>().flipX = true;
     }
 
     // Update is called once per frame
