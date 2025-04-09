@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
 
-    public GameObject kaijuGuardado;
+
     
     
     void Start()
@@ -47,6 +47,12 @@ public class GameManager : Singleton<GameManager>
         }
         yield return new WaitForSeconds(waitSeconds);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void Quit()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 
 }
