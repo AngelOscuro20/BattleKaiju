@@ -35,8 +35,8 @@ public class CareManager : Singleton<CareManager>
         Debug.Log("Care Mistakes: " + careMistakes);
 
         //Iniciamos las rutina de hambre y entrenamiento
-        InvokeRepeating("HungerDrop", 5, 5);
-        InvokeRepeating("TrainingDrop", 5, 5);
+        InvokeRepeating("HungerDrop", 10, 10);
+        InvokeRepeating("TrainingDrop", 10, 10);
 
         callCircle.SetActive(false);
     }
