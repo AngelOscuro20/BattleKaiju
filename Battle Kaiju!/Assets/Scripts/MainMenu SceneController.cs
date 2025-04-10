@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuSceneController : MonoBehaviour
 {
@@ -21,12 +22,12 @@ public class MainMenuSceneController : MonoBehaviour
         Application.Quit();
     }
 
-    public void IniciarPartida() { GameManager.Instance.GoToNextScene(0); }
+    public void IniciarPartida() {
+        Destroy(GameObject.FindGameObjectWithTag("musica"));
+        GameManager.Instance.GoToNextScene(0); 
+    }
 
     public void Creditos() {
-        nombre1.SetActive(true);
-        nombre2.SetActive(true);
-        nombre3.SetActive(true);
-        animatorcreditos.Play("PopInCreditos"); 
+        SceneManager.LoadScene("CreditosScene");
     }
 }

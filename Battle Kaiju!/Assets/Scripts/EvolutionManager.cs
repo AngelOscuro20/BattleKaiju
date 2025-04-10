@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class EvolutionManager : Singleton<EvolutionManager>
 {
+    public GameObject kaijuinicial;
+    bool firstLoad = true;
     int careMistakes;
     public GameObject kaijuActual;
     public Animator animatorKaiju;
@@ -24,6 +26,12 @@ public class EvolutionManager : Singleton<EvolutionManager>
 
     private void Start()
     {
+        if(firstLoad == true)
+        {
+            Instantiate<GameObject>(kaijuinicial);
+            firstLoad = false;
+            kaijuinicial.transform.position = new Vector3(0, 0, -1);
+        }
         kaijuActual = GameObject.FindGameObjectWithTag("kaiju");
         animatorKaiju = kaijuActual.GetComponent<Animator>();
     }

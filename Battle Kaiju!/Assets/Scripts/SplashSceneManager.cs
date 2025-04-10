@@ -8,11 +8,13 @@ public class SplashSceneManager : MonoBehaviour
     public float waitTime = 10f;
     private float startedAt;
     private bool hasMoveOn = false;
+    public GameObject musica;
 
     private void Start()
     {
      //   if (splashTheme != null) GameManager.Instance.audioManager.PlayMusic(splashTheme);
         startedAt = Time.time;
+        DontDestroyOnLoad(musica);
     }
     void Update()
     {

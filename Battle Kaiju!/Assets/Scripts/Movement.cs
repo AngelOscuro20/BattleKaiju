@@ -78,4 +78,17 @@ public class Movement : MonoBehaviour
         petting = false;
         particulasPetting.Stop();
     }
+
+    public void moveTo(GameObject gameobject) 
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            Debug.Log(gameobject.name);
+            animator.Play("Mover");
+            rg2d.MovePosition(Vector2.MoveTowards(this.transform.position, gameobject.transform.position, 10f));
+            StartCoroutine(Wait());
+        }
+    }
+
+    IEnumerator Wait() { yield return new WaitForSeconds(3); }
 }

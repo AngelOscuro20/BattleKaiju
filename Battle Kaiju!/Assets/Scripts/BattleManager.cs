@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : Singleton<BattleManager>
 {
@@ -32,6 +33,7 @@ public class BattleManager : Singleton<BattleManager>
     public RectTransform rectTransformVidaMarco;
     public RectTransform rectTransformVidaFondoEnemigo;
     public RectTransform rectTransformVidaMarcoEnemigo;
+    int ronda = 1;
     void Start()
     {
         GameObject.FindGameObjectWithTag("CareManager").GetComponent<CareManager>().enabled = false;
@@ -57,6 +59,11 @@ public class BattleManager : Singleton<BattleManager>
         rectTransformVidaFondo.sizeDelta = new Vector2(vidaActualJugador*2, 25);
         rectTransformVidaMarcoEnemigo.sizeDelta = new Vector2(vidaActualEnemigo * 2, 25);
         rectTransformVidaFondoEnemigo.sizeDelta = new Vector2(vidaActualEnemigo * 2, 25);
+
+        kaijuEnemigoActual = kaijuEnemigo1;
+
+        kaijuEnemigo2.SetActive(false);
+        kaijuEnemigo3.SetActive(false);
     }
 
     // Update is called once per frame
@@ -78,8 +85,8 @@ public class BattleManager : Singleton<BattleManager>
         
             vidaActualEnemigo = vidaActualEnemigo - (int)danyoJugador;
             vidaActualJugador = vidaActualJugador - (int)danyoEnemigo;
-        if(vidaActualEnemigo<0) {vidaActualEnemigo = 0; /*cambiarKaijuEnemigo();*/}
-        if(vidaActualJugador<0) {vidaActualJugador = 0; /*peleaPerdida();*/} 
+        if(vidaActualEnemigo<0) {vidaActualEnemigo = 0; ronda++; cambiarKaijuEnemigo();}
+        if(vidaActualJugador<0) {vidaActualJugador = 0; peleaPerdida();} 
         rectTransformVidaFondo.sizeDelta = new Vector2(vidaActualJugador*2, 25);
         rectTransformVidaFondoEnemigo.sizeDelta = new Vector2(vidaActualEnemigo * 2, 25);
     }
@@ -208,5 +215,47 @@ public class BattleManager : Singleton<BattleManager>
         restarVida(danyoJugador, danyoEnemigo);
         Debug.Log("Vida Jugador = " + vidaActualJugador);
         Debug.Log("Vida Enemigo = " + vidaActualEnemigo);
+    }
+
+    void cambiarKaijuEnemigo() 
+    {
+        
+        kaijuEnemigoActual.SetActive(false);
+        kaijuEnemigoActual = null;
+        switch (ronda) {
+
+            case 2:kaijuEnemigo2.SetActive(true); kaijuEnemigoActual = kaijuEnemigo2;break;
+            case 3: kaijuEnemigo3.SetActive(true); kaijuEnemigoActual = kaijuEnemigo3;break;
+            case 4: peleaPerdida();break;
+            default:break;
+        }
+
+        kaijuEnemigoStats = kaijuEnemigoActual.GetComponent<Stats>();
+        animatorKaijuEnemigo = kaijuEnemigoActual.GetComponent<Animator>();
+        vidaActualEnemigo = kaijuEnemigoStats.HP;
+
+        rectTransformVidaMarcoEnemigo = GameObject.FindGameObjectWithTag("VidaMarcoEnemigo").GetComponent<RectTransform>();
+        rectTransformVidaFondoEnemigo = GameObject.FindGameObjectWithTag("VidaFondoEnemigo").GetComponent<RectTransform>();
+
+        rectTransformVidaMarcoEnemigo.sizeDelta = new Vector2(vidaActualEnemigo * 2, 25);
+        rectTransformVidaFondoEnemigo.sizeDelta = new Vector2(vidaActualEnemigo * 2, 25);
+
+    }
+    void peleaPerdida() {
+        Debug.Log("cambiando de escena");
+        StartCoroutine(VolverACrianza());
+    }
+
+    public IEnumerator VolverACrianza() {
+        yield return new WaitForSeconds(2);
+        Destroy(kaijuEnemigo1);
+        Destroy(kaijuEnemigo2);
+        Destroy(kaijuEnemigo3);
+        kaijuJugador.GetComponent<Movement>().enabled = false;
+        GameObject.FindGameObjectWithTag("CareManager").GetComponent<CareManager>().enabled = true;
+        kaijuJugador.transform.position = new Vector3(0, 0, -1);
+        SceneManager.LoadScene("CareScene");
+
+        Destroy(this);
     }
 }

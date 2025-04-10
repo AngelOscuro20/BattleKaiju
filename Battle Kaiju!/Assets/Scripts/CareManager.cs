@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CareManager : Singleton<CareManager>
 {
+    bool firstLoad = true;
     float timer = 0;
     float callTime;
     int careMistakes = 0;
@@ -17,14 +18,14 @@ public class CareManager : Singleton<CareManager>
     bool triedEvolving = false;
     public GameObject kaijuActual;
     public Animator animatorKaiju;
-    GameObject callCircle;
+    public GameObject callCircle;
     // Start is called before the first frame update
     void Start()
     {
-
+       
+        callCircle.SetActive(false);
         //Buscamos el kaiju actual, su id y su tiempo de evolución
         kaijuActual = GameObject.FindGameObjectWithTag("kaiju");
-        callCircle = GameObject.Find("CircleCall");
         animatorKaiju = kaijuActual.GetComponent<Animator>();
         IDKaiju = kaijuActual.GetComponent<Stats>().ID;
         evoTime = kaijuActual.GetComponent<Stats>().evolutiontime;
@@ -38,7 +39,7 @@ public class CareManager : Singleton<CareManager>
         InvokeRepeating("HungerDrop", 10, 10);
         InvokeRepeating("TrainingDrop", 10, 10);
 
-        callCircle.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -51,7 +52,7 @@ public class CareManager : Singleton<CareManager>
         //Debug.Log(timer);
 
         //Si se está llamando a un care mistake, se comprueba el contador
-        if (callingHunger || callingTraining) { CheckCareMistake(); }
+        if (callingHunger || callingTraining) { callCircle.SetActive(true); CheckCareMistake(); } else { callCircle.SetActive(false); }
 
         //Si el timer es mayor que el evolution timer,se llama al metodo de evolucion
         if (timer > evoTime && !triedEvolving) 
@@ -61,11 +62,11 @@ public class CareManager : Singleton<CareManager>
             if (evobool)
             {
                 careMistakes = 0;
-                if (kaijuActual = null) { 
+                
                 animatorKaiju = kaijuActual.GetComponent<Animator>();
                 IDKaiju = kaijuActual.GetComponent<Stats>().ID;
                 evoTime = kaijuActual.GetComponent<Stats>().evolutiontime;
-                }
+                
             } else { triedEvolving = true; }
             Debug.Log(evobool);
             Debug.Log("ID actual =" + IDKaiju);
@@ -154,6 +155,7 @@ public class CareManager : Singleton<CareManager>
 
     public void Eat()
     {
+        kaijuActual.GetComponent<Movement>().moveTo(GameObject.Find("Asador"));
         animatorKaiju.Play("Comer");
         hungerMeter++;
         if (hungerMeter > 5) { hungerMeter = 5; }
@@ -164,6 +166,7 @@ public class CareManager : Singleton<CareManager>
 
     public void Train()
     {
+        kaijuActual.GetComponent<Movement>().moveTo(GameObject.Find("Saco de Boxeo"));
         trainingMeter++;
         if (trainingMeter > 5) { trainingMeter = 5; }
         Debug.Log("Barra de entrenamiento: " + trainingMeter);
