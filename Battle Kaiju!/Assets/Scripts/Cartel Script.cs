@@ -6,6 +6,6 @@ public class CartelScript : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        GameManager.Instance.GoToNextScene();
+        GameManager.Instance.GoToNextScene(0);
     }
 }

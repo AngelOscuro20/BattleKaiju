@@ -49,11 +49,7 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void Quit()
-    {
-        UnityEditor.EditorApplication.isPlaying = false;
-        Application.Quit();
-    }
+    
 
     public void LoadCreditScene()     //cuando pulsamos el boton de creditos se carga su escena
     {
