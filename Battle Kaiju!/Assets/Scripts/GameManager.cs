@@ -55,4 +55,9 @@ public class GameManager : Singleton<GameManager>
         Application.Quit();
     }
 
+    public void LoadCreditScene()
+    {
+        SceneManager.LoadScene("CreditosScene");
+    }
+
 }
