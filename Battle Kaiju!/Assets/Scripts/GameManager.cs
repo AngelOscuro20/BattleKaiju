@@ -55,9 +55,14 @@ public class GameManager : Singleton<GameManager>
         Application.Quit();
     }
 
-    public void LoadCreditScene()
+    public void LoadCreditScene()     //cuando pulsamos el boton de creditos se carga su escena
     {
         SceneManager.LoadScene("CreditosScene");
+    }
+
+    public void BackToMainMenu()  //cuando estamos en la escena de creditos y queremos volver al menu principal
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
