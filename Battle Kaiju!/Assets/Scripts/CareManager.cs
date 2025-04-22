@@ -19,6 +19,7 @@ public class CareManager : Singleton<CareManager>
     public GameObject kaijuActual;
     public Animator animatorKaiju;
     public GameObject callCircle;
+    public GameObject menupausa;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +49,12 @@ public class CareManager : Singleton<CareManager>
 
         if (Input.GetKeyDown(KeyCode.C)) { careMistakes++; Debug.Log("Care Mistakes: " + careMistakes); }
         if (Input.GetKeyDown(KeyCode.T)) { timer += 10; Debug.Log("Timer: " + timer); }
-        if(enabled) timer += Time.deltaTime;
+
+        //Llamada al menu de Pausa
+        if (Input.GetKeyDown(KeyCode.Escape)) { menupausa.SetActive(true); menupausa.GetComponent<MenuPausaScript>().PausarJuego(); }
+
+        //contador global
+        if (enabled) timer += Time.deltaTime;
         //Debug.Log(timer);
 
         //Si se está llamando a un care mistake, se comprueba el contador
