@@ -5,16 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuSceneController : MonoBehaviour
 {
-    public GameObject nombre1;
-    public GameObject nombre2;
-    public GameObject nombre3;
-    public Animator animatorcreditos;
+  
 
     private void Start()
     {
-        nombre1.SetActive(false);
-        nombre2.SetActive(false);
-        nombre3.SetActive(false);  
+        
     }
     public void Quit()
     {

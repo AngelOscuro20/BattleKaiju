@@ -9,12 +9,14 @@ public class SplashSceneManager : MonoBehaviour
     private float startedAt;
     private bool hasMoveOn = false;
     public GameObject musica;
+    public GameObject Volumen;
 
     private void Start()
     {
      //   if (splashTheme != null) GameManager.Instance.audioManager.PlayMusic(splashTheme);
         startedAt = Time.time;
         DontDestroyOnLoad(musica);
+        DontDestroyOnLoad(Volumen);
     }
     void Update()
     {

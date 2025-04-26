@@ -12,6 +12,7 @@ TagManager:
   - VidaMarcoEnemigo
   - musica
   - CircleCall
+  - prueba
   layers:
   - Default
   - TransparentFX

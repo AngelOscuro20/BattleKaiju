@@ -3,17 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
 
-
-    
-    
+    TimeSpan horaReal;
+    public Volume volume;
+    public VolumeProfile noche;
+    public VolumeProfile dia;
+    public VolumeProfile tarde;
     void Start()
     {
-        
+        horaReal = DateTime.Now.TimeOfDay;
+        print(horaReal);
+        if (7 <= horaReal.Hours && horaReal.Hours < 16)
+        {
+            volume.profile = dia;
+        }
+        else if (16 <= horaReal.Hours && horaReal.Hours < 20)
+        {
+            volume.profile = tarde;
+        }
+        else 
+        {
+            volume.profile = noche;
+        }
     }
 
     
