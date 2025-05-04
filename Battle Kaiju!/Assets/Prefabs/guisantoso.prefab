@@ -137,9 +137,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 10
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   Nombre: 
   estadioEvolutivo: 
   tipo: 0
+=======
+  tipo: 3
+>>>>>>> Stashed changes
 =======
   tipo: 3
 >>>>>>> Stashed changes

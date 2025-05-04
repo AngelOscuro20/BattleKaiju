@@ -137,9 +137,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   Nombre: Hamuso
   estadioEvolutivo: "Ni\xF1o"
   tipo: 0
+=======
+  tipo: 2
+>>>>>>> Stashed changes
 =======
   tipo: 2
 >>>>>>> Stashed changes
