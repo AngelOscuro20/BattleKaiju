@@ -136,14 +136,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 6
+<<<<<<< Updated upstream
   Nombre: 
   estadioEvolutivo: 
   tipo: 0
+=======
+  tipo: 1
+>>>>>>> Stashed changes
   evolutiontime: 300
-  attack: 10
+  attack: 30
   HP: 50
-  Defense: 10
-  speed: 10
+  Defense: 35
+  speed: 20
 --- !u!198 &2682689437971420739
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4982,7 +4986,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 15ae294a04271c240aa27c2251a44e4b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3141426940593bf4689648d83eb044bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

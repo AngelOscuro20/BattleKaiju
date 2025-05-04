@@ -136,14 +136,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9
+<<<<<<< Updated upstream
   Nombre: 
   estadioEvolutivo: 
   tipo: 0
+=======
+  tipo: 1
+>>>>>>> Stashed changes
   evolutiontime: 400
   attack: 100
-  HP: 100
-  Defense: 100
-  speed: 5
+  HP: 75
+  Defense: 70
+  speed: 35
 --- !u!198 &-8526298814042872746
 ParticleSystem:
   m_ObjectHideFlags: 0

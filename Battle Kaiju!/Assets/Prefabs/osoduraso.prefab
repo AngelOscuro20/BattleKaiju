@@ -140,10 +140,10 @@ MonoBehaviour:
   estadioEvolutivo: 
   tipo: 0
   evolutiontime: 500
-  attack: 100
-  HP: 100
-  Defense: 100
-  speed: 5
+  attack: 75
+  HP: 150
+  Defense: 125
+  speed: 35
 --- !u!198 &1254223905226505440
 ParticleSystem:
   m_ObjectHideFlags: 0

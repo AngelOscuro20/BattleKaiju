@@ -136,14 +136,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3
+<<<<<<< Updated upstream
   Nombre: Lombriso
   estadioEvolutivo: "Ni\xF1o"
   tipo: 0
+=======
+  tipo: 3
+>>>>>>> Stashed changes
   evolutiontime: 200
   attack: 10
-  HP: 15
+  HP: 30
   Defense: 10
-  speed: 15
+  speed: 30
 --- !u!198 &-8495372616140898190
 ParticleSystem:
   m_ObjectHideFlags: 0

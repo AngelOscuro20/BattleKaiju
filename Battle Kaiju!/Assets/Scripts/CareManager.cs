@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CareManager : Singleton<CareManager>
 {
-    bool firstLoad = true;
+    
     float timer = 0;
     float callTime;
     int careMistakes = 0;
