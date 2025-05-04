@@ -136,17 +136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   Nombre: Lombriso
-  estadioEvolutivo: "Ni\xF1o"
-  tipo: 0
-=======
+  estadioEvolutivo: Novato
   tipo: 3
->>>>>>> Stashed changes
-=======
-  tipo: 3
->>>>>>> Stashed changes
   evolutiontime: 200
   attack: 10
   HP: 30

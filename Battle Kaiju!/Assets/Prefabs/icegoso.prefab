@@ -136,17 +136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  Nombre: 
-  estadioEvolutivo: 
-  tipo: 0
-=======
+  Nombre: Icegoso
+  estadioEvolutivo: Campeon
   tipo: 1
->>>>>>> Stashed changes
-=======
-  tipo: 1
->>>>>>> Stashed changes
   evolutiontime: 500
   attack: 150
   HP: 100

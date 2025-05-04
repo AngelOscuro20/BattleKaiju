@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13
-  Nombre: 
-  estadioEvolutivo: 
+  Nombre: Osoduroso
+  estadioEvolutivo: Campeon
   tipo: 0
   evolutiontime: 500
   attack: 75

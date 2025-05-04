@@ -136,17 +136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 4
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   Nombre: Samuiso
   estadioEvolutivo: Aspirante
-  tipo: 0
-=======
   tipo: 1
->>>>>>> Stashed changes
-=======
-  tipo: 1
->>>>>>> Stashed changes
   evolutiontime: 300
   attack: 70
   HP: 50

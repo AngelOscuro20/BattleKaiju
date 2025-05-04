@@ -136,17 +136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   Nombre: Hamuso
-  estadioEvolutivo: "Ni\xF1o"
-  tipo: 0
-=======
+  estadioEvolutivo: Novato
   tipo: 2
->>>>>>> Stashed changes
-=======
-  tipo: 2
->>>>>>> Stashed changes
   evolutiontime: 200
   attack: 30
   HP: 10
