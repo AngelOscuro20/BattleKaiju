@@ -10,9 +10,10 @@ public class LupaScript : MonoBehaviour
 
     private Vector2 mousePosition;
     private Vector2 dragOffset;
-    public GameObject panelInfo;
+    public GameObject panelInfoKaiju;
+    public GameObject panelInfoEdf;
     public TMP_Text Titulo;
-    public Image Imagen;
+    public Image ImagenKaiju;
     public Sprite ofensivo;
     public Sprite defensivo;
     public Sprite evasivo;
@@ -23,6 +24,9 @@ public class LupaScript : MonoBehaviour
     public TMP_Text AtaqueTexto;
     public TMP_Text DefensaTexto;
     public TMP_Text VelocidadTexto;
+    public Image ImagenEdf;
+    public TMP_Text NombreEdf;
+    public TMP_Text Descripcion;
     private void OnMouseDown()
     {
         dragOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition)-transform.position;
@@ -37,7 +41,8 @@ public class LupaScript : MonoBehaviour
     private void OnMouseUp()
     {
         transform.position = new Vector2(5f, 3f);
-        panelInfo.transform.position = new Vector2(1000f, 1000f);
+        panelInfoKaiju.transform.position = new Vector2(1000f, 1000f);
+        panelInfoEdf.transform.position = new Vector2(1000f, 1000f);
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -50,7 +55,7 @@ public class LupaScript : MonoBehaviour
                 print(other.gameObject.GetComponent<Stats>().ID);
                 print(other.gameObject.GetComponent<Stats>().Nombre);
                 Titulo.text = other.gameObject.GetComponent<Stats>().Nombre;
-                Imagen.sprite = other.gameObject.GetComponent<SpriteRenderer>().sprite;
+                ImagenKaiju.sprite = other.gameObject.GetComponent<SpriteRenderer>().sprite;
                 print(other.gameObject.GetComponent<Stats>().estadioEvolutivo);
                 estadioTexto.text = other.gameObject.GetComponent<Stats>().estadioEvolutivo;
                 VidaTexto.text = "Vida: " + other.gameObject.GetComponent<Stats>().HP.ToString();
@@ -77,8 +82,31 @@ public class LupaScript : MonoBehaviour
                         ;break;
                     default:;break;
                 }
-                panelInfo.transform.position = transform.position + new Vector3(0,0,-3);
+
+                if (transform.position.x > 0)
+                {
+                    panelInfoKaiju.transform.position = transform.position + new Vector3(-7.3f, 0,-3);
+                }
+                else
+                {
+                    panelInfoKaiju.transform.position = transform.position + new Vector3(0, 0,-3);
+                }
             }
+            else if (other.CompareTag("edificio"))
+            {
+                ImagenEdf.sprite = other.gameObject.GetComponent<SpriteRenderer>().sprite;
+                if (transform.position.x > 0)
+                {
+                    panelInfoEdf.transform.position = transform.position + new Vector3(-7.3f, 0,-3);
+                }
+                else
+                {
+                    panelInfoEdf.transform.position = transform.position + new Vector3(0, 0, -3);
+                }
+
+
+            }
+            
             string nombre = other.gameObject.name;
             print(nombre);
         }
@@ -86,6 +114,7 @@ public class LupaScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        panelInfo.transform.position = new Vector2(1000f, 1000f);
+        panelInfoKaiju.transform.position = new Vector2(1000f, 1000f);
+        panelInfoEdf.transform.position = new Vector2(1000f, 1000f);
     }
 }

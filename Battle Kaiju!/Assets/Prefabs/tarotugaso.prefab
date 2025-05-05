@@ -110,7 +110,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.3012524}
+  m_Offset: {x: -0.013539791, y: -0.05563736}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -121,7 +121,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 3.2330294, y: 3.1788726}
   m_EdgeRadius: 0
 --- !u!114 &4182767509361242484
 MonoBehaviour:
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 9
-  Nombre: Tarotugaso 
+  Nombre: Tarotugaso
   estadioEvolutivo: Contendiente
   tipo: 1
   evolutiontime: 400
@@ -4982,7 +4982,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 04afb1d9122e23e4388462cebd4e7fe0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b52c15b1c27a2141a924d8360d4b680, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
