@@ -211,13 +211,8 @@ public class BattleManager : Singleton<BattleManager>
             danyoJugador = kaijuJugadorStats.attack * 2;
             danyoEnemigo = 0;
         }
-        StartCoroutine(AnimAtaque(kaijuJugador));
-        StartCoroutine(AnimAtaque(kaijuEnemigoActual));
-        Debug.Log("Daño jugador =" + danyoJugador);
-        Debug.Log("Daño enemigo =" + danyoEnemigo);
-        restarVida(danyoJugador, danyoEnemigo);
-        Debug.Log("Vida Jugador = " + vidaActualJugador);
-        Debug.Log("Vida Enemigo = " + vidaActualEnemigo);
+        StartCoroutine(AnimAtaque(danyoJugador,danyoEnemigo));
+        
     }
 
     void cambiarKaijuEnemigo() 
@@ -262,9 +257,22 @@ public class BattleManager : Singleton<BattleManager>
         Destroy(this);
     }
 
-    public IEnumerator AnimAtaque(GameObject kaiju)
+    public IEnumerator AnimAtaque(double danyoJugador,double danyoEnemigo)
     {
-        yield return new WaitForSeconds(2);
-        kaiju.GetComponent<Animator>().Play("Ataque");
+        animatorKaijuJugador.Play("Atacar");
+        yield return new WaitForSeconds(1);
+        kaijuJugador.transform.position = kaijuJugador.transform.position +  new Vector3(2,1,0);
+        yield return new WaitForSeconds(1);
+        kaijuJugador.transform.position = kaijuJugador.transform.position + new Vector3(-2, -1, 0);
+        animatorKaijuEnemigo.Play("Atacar");
+        yield return new WaitForSeconds(1);
+        kaijuEnemigoActual.transform.position = kaijuEnemigoActual.transform.position + new Vector3(-2, -1, 0);
+        yield return new WaitForSeconds(1);
+        kaijuEnemigoActual.transform.position = kaijuEnemigoActual.transform.position + new Vector3(2,1,0);
+        Debug.Log("Daño jugador =" + danyoJugador);
+        Debug.Log("Daño enemigo =" + danyoEnemigo);
+        restarVida(danyoJugador, danyoEnemigo);
+        Debug.Log("Vida Jugador = " + vidaActualJugador);
+        Debug.Log("Vida Enemigo = " + vidaActualEnemigo);
     }
 }
