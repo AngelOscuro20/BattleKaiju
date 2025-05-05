@@ -1333,6 +1333,7 @@ GameObject:
   - component: {fileID: 265059789}
   - component: {fileID: 265059788}
   - component: {fileID: 265059787}
+  - component: {fileID: 265059791}
   m_Layer: 0
   m_Name: Saco de Boxeo
   m_TagString: edificio
@@ -1464,6 +1465,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &265059791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265059786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80998d7f18df294d8b80b403debb99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nombre: Entrenamiento
+  descripcion: Tu kaiju necesita entrenar para ponerse fuerte en el torneo! Pulsa
+    este edificio para que entrene
 --- !u!1 &300061664
 GameObject:
   m_ObjectHideFlags: 0
@@ -5491,6 +5507,7 @@ GameObject:
   - component: {fileID: 782902559}
   - component: {fileID: 782902558}
   - component: {fileID: 782902557}
+  - component: {fileID: 782902561}
   m_Layer: 0
   m_Name: Asador
   m_TagString: edificio
@@ -5622,6 +5639,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &782902561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782902556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80998d7f18df294d8b80b403debb99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nombre: Comida
+  descripcion: "Pulsa aqu\xED para dar de comer a tu kaiju. Un buen entrenador nunca
+    dejaria que su kaiju pasara hambre."
 --- !u!1 &792733963
 GameObject:
   m_ObjectHideFlags: 0
@@ -5662,8 +5694,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ff2755f89cf0b354ea7f667ba2bca745, type: 2}
-  m_sharedMaterial: {fileID: -5355519504702440167, guid: ff2755f89cf0b354ea7f667ba2bca745, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ebc40e0906c82af49827f553b268188e, type: 2}
+  m_sharedMaterial: {fileID: -2034709350381717904, guid: ebc40e0906c82af49827f553b268188e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7038,8 +7070,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ff2755f89cf0b354ea7f667ba2bca745, type: 2}
-  m_sharedMaterial: {fileID: -5355519504702440167, guid: ff2755f89cf0b354ea7f667ba2bca745, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ebc40e0906c82af49827f553b268188e, type: 2}
+  m_sharedMaterial: {fileID: -2034709350381717904, guid: ebc40e0906c82af49827f553b268188e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7398,8 +7430,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Velocidad: \n20"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ff2755f89cf0b354ea7f667ba2bca745, type: 2}
-  m_sharedMaterial: {fileID: -5355519504702440167, guid: ff2755f89cf0b354ea7f667ba2bca745, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ebc40e0906c82af49827f553b268188e, type: 2}
+  m_sharedMaterial: {fileID: -2034709350381717904, guid: ebc40e0906c82af49827f553b268188e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7519,6 +7551,7 @@ GameObject:
   - component: {fileID: 1457199781}
   - component: {fileID: 1457199780}
   - component: {fileID: 1457199783}
+  - component: {fileID: 1457199784}
   m_Layer: 0
   m_Name: Cartel
   m_TagString: edificio
@@ -7650,6 +7683,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f2a22093317264eb7d7a217396b8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1457199784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457199778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80998d7f18df294d8b80b403debb99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nombre: Cartel
+  descripcion: "Pulsa este cartel para participar en el torneo. Ten cuidado: Si tu
+    kaiju es muy d\xE9bil podria resultar herido!"
 --- !u!1 &1505117374
 GameObject:
   m_ObjectHideFlags: 0
@@ -8689,8 +8737,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Vida: \n20"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ff2755f89cf0b354ea7f667ba2bca745, type: 2}
-  m_sharedMaterial: {fileID: -5355519504702440167, guid: ff2755f89cf0b354ea7f667ba2bca745, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ebc40e0906c82af49827f553b268188e, type: 2}
+  m_sharedMaterial: {fileID: -2034709350381717904, guid: ebc40e0906c82af49827f553b268188e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9271,8 +9319,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Defensa: \n20"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ff2755f89cf0b354ea7f667ba2bca745, type: 2}
-  m_sharedMaterial: {fileID: -5355519504702440167, guid: ff2755f89cf0b354ea7f667ba2bca745, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ebc40e0906c82af49827f553b268188e, type: 2}
+  m_sharedMaterial: {fileID: -2034709350381717904, guid: ebc40e0906c82af49827f553b268188e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9405,8 +9453,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Ataque: \n20"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ff2755f89cf0b354ea7f667ba2bca745, type: 2}
-  m_sharedMaterial: {fileID: -5355519504702440167, guid: ff2755f89cf0b354ea7f667ba2bca745, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ebc40e0906c82af49827f553b268188e, type: 2}
+  m_sharedMaterial: {fileID: -2034709350381717904, guid: ebc40e0906c82af49827f553b268188e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

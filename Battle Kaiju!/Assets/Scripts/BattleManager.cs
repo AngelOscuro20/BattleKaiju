@@ -211,6 +211,8 @@ public class BattleManager : Singleton<BattleManager>
             danyoJugador = kaijuJugadorStats.attack * 2;
             danyoEnemigo = 0;
         }
+        StartCoroutine(AnimAtaque(kaijuJugador));
+        StartCoroutine(AnimAtaque(kaijuEnemigoActual));
         Debug.Log("Daño jugador =" + danyoJugador);
         Debug.Log("Daño enemigo =" + danyoEnemigo);
         restarVida(danyoJugador, danyoEnemigo);
@@ -258,5 +260,11 @@ public class BattleManager : Singleton<BattleManager>
         SceneManager.LoadScene("CareScene");
 
         Destroy(this);
+    }
+
+    public IEnumerator AnimAtaque(GameObject kaiju)
+    {
+        yield return new WaitForSeconds(2);
+        kaiju.GetComponent<Animator>().Play("Ataque");
     }
 }
