@@ -100,7 +100,6 @@ public class BattleManager : Singleton<BattleManager>
 
     public void CalcularDanyos()
     {
-        animatorKaijuEnemigo.Play("attack");
         
         ready = false;
         double danyoJugador = 0;
