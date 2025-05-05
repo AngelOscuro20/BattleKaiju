@@ -7258,7 +7258,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1404029315
 RectTransform:
@@ -7268,7 +7268,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404029314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7276,7 +7276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34, y: -48}
+  m_AnchoredPosition: {x: -52.8, y: -48}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1404029316
@@ -7355,8 +7355,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ad0d2a92b5865a34095d5320a29f774e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8258,6 +8258,9 @@ MonoBehaviour:
   menupausa: {fileID: 1624553087}
   audio: {fileID: 1943105738}
   animator: {fileID: 0}
+  newImage: {fileID: 21300000, guid: c3176ba874f79e345a0a73b1b768b489, type: 3}
+  oldImage: {fileID: 21300000, guid: ad0d2a92b5865a34095d5320a29f774e, type: 3}
+  botonsonido: {fileID: 1404029316}
 --- !u!95 &1624553090
 Animator:
   serializedVersion: 5

@@ -2,18 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class MenuPausaScript : MonoBehaviour
 {
     public GameObject menupausa;
     public AudioSource audio;
     public Animator animator;
+    public Sprite newImage;
+    public Sprite oldImage;
+    public Button botonsonido;
+
+  
+
     bool musica = true;
     // Start is called before the first frame update
     void Start()
     {
         menupausa.SetActive(false);
         animator = this.GetComponent<Animator>();
+       
     }
 
     private void Update()
@@ -26,11 +35,15 @@ public class MenuPausaScript : MonoBehaviour
         { 
             audio.volume = 0;
             musica = false;
+            changeButton();
+
+
         }
         else
         {
             audio.volume = 0.5f;
             musica = true;
+            changeButton();
         }
     
     }
@@ -72,6 +85,15 @@ public class MenuPausaScript : MonoBehaviour
             yield return new WaitForSeconds(1);
             Time.timeScale = 0;
         }
+
         
+    }
+
+    public void changeButton() {
+        if (botonsonido.image.sprite == newImage) { botonsonido.image.sprite = oldImage; }
+        else  { botonsonido.image.sprite = newImage; }
+
+
+
     }
 }
