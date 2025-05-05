@@ -767,6 +767,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2376843472666353935, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
+      propertyPath: m_TagString
+      value: GameManager
+      objectReference: {fileID: 0}
     - target: {fileID: 9210623172180483733, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.05399726
@@ -836,6 +840,8 @@ MonoBehaviour:
   noche: {fileID: 0}
   dia: {fileID: 0}
   tarde: {fileID: 0}
+  nivelSeleccionado: 0
+  ultimoNivelCompletado: 0
   interLevelWaitTime: 10
 --- !u!1 &1405331717
 GameObject:

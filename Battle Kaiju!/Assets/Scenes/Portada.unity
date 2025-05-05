@@ -1026,7 +1026,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.8
+  orthographic size: 48
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1137,6 +1137,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2376843472666353935, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
+      propertyPath: m_TagString
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037292314641640146, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
+      propertyPath: dia
+      value: 
+      objectReference: {fileID: 11400000, guid: e35755bec6440c247ad06282a23d2def, type: 2}
+    - target: {fileID: 4037292314641640146, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
+      propertyPath: noche
+      value: 
+      objectReference: {fileID: 11400000, guid: a3d526d25643eaf40851bafe1251f9a4, type: 2}
+    - target: {fileID: 4037292314641640146, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
+      propertyPath: tarde
+      value: 
+      objectReference: {fileID: 11400000, guid: 077fa3b5efb7787478cdb5f1aa58f41e, type: 2}
+    - target: {fileID: 4037292314641640146, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 1407183105}
     - target: {fileID: 9210623172180483733, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.05399726
@@ -1182,33 +1202,8 @@ PrefabInstance:
     - {fileID: 1078429502361839071, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2376843472666353935, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3303692293565804005}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
---- !u!1 &3303692293565804004 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2376843472666353935, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
-  m_PrefabInstance: {fileID: 3303692293565804003}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3303692293565804005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3303692293565804004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7390ade06ddf5b84e85e8ec3fb0356bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volume: {fileID: 1407183105}
-  noche: {fileID: 11400000, guid: a3d526d25643eaf40851bafe1251f9a4, type: 2}
-  dia: {fileID: 11400000, guid: e35755bec6440c247ad06282a23d2def, type: 2}
-  tarde: {fileID: 11400000, guid: 077fa3b5efb7787478cdb5f1aa58f41e, type: 2}
-  interLevelWaitTime: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
