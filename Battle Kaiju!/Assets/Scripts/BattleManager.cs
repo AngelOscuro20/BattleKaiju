@@ -75,7 +75,6 @@ public class BattleManager : Singleton<BattleManager>
     public void AtaqueJugador(int tipoAtaque) 
     {
         tipoAtaqueSeleccionadoJugador = tipoAtaque;
-
         Debug.Log("Tipo ataque jugador " + tipoAtaqueSeleccionadoJugador);
         ataqueEnemigo();
     }
@@ -95,11 +94,14 @@ public class BattleManager : Singleton<BattleManager>
     {
         tipoAtaqueSeleccionadoEnemigo = Random.Range(1, 4);
         Debug.Log("Tipo ataque enemigo " + tipoAtaqueSeleccionadoEnemigo);
+
         ready = true;
     }
 
     public void CalcularDanyos()
     {
+        animatorKaijuEnemigo.Play("attack");
+        
         ready = false;
         double danyoJugador = 0;
         double danyoEnemigo = 0;
