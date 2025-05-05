@@ -255,7 +255,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6519741698076402329}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8687754569562623713}
+        m_TargetAssemblyTypeName: LevelSelectorButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8687754569562623713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,4 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d73558dfb005ce34ab0fef1fa887746b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelIndex: 0
   text: {fileID: 6393839647201659247}
+  gameManager: {fileID: 2376843472666353935, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}

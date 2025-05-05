@@ -14,6 +14,8 @@ public class GameManager : Singleton<GameManager>
     public VolumeProfile noche;
     public VolumeProfile dia;
     public VolumeProfile tarde;
+    public int nivelSeleccionado;
+    public int ultimoNivelCompletado;
     void Start()
     {
         horaReal = DateTime.Now.TimeOfDay;
@@ -65,5 +67,11 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public int GetNumberOfLevels() { return 15; }
+
+    public void SetSelectedLevel(int i) 
+    {
+        nivelSeleccionado = i;
+    }
 
 }

@@ -15,6 +15,7 @@ TagManager:
   - prueba
   - barrera
   - edificio
+  - GameManager
   layers:
   - Default
   - TransparentFX

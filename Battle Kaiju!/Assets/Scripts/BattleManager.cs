@@ -16,6 +16,21 @@ public class BattleManager : Singleton<BattleManager>
     int vidaActualJugador;
     int vidaActualEnemigo;
 
+    public GameObject gameManager;
+    public GameObject kaiju1;
+    public GameObject kaiju2;
+    public GameObject kaiju3;
+    public GameObject kaiju4;
+    public GameObject kaiju5;
+    public GameObject kaiju6;
+    public GameObject kaiju7;
+    public GameObject kaiju8;
+    public GameObject kaiju9;
+    public GameObject kaiju10;
+    public GameObject kaiju11;
+    public GameObject kaiju12;
+    public GameObject kaiju13;
+
     public GameObject kaijuJugador;
 
     public GameObject kaijuEnemigoActual;
@@ -36,12 +51,33 @@ public class BattleManager : Singleton<BattleManager>
     int ronda = 1;
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
         GameObject.FindGameObjectWithTag("CareManager").GetComponent<CareManager>().enabled = false;
         kaijuJugador = GameObject.FindGameObjectWithTag("kaiju");
         animatorKaijuJugador = kaijuJugador.GetComponent<Animator>();
         kaijuJugadorStats = kaijuJugador.GetComponent<Stats>();
         vidaActualJugador =  kaijuJugadorStats.HP;
 
+        switch (gameManager.GetComponent<GameManager>().nivelSeleccionado)
+        {
+            case 1: kaijuEnemigo1 = Instantiate(kaiju1); kaijuEnemigo2 = Instantiate(kaiju1); kaijuEnemigo3 = Instantiate(kaiju2); ;break;
+            case 2: kaijuEnemigo1 = Instantiate(kaiju1); kaijuEnemigo2 = Instantiate(kaiju2); kaijuEnemigo3 = Instantiate(kaiju3); ; break;
+            case 3: kaijuEnemigo1 = Instantiate(kaiju3); kaijuEnemigo2 = Instantiate(kaiju2); kaijuEnemigo3 = Instantiate(kaiju6); ; break;
+            case 4: kaijuEnemigo1 = Instantiate(kaiju3); kaijuEnemigo2 = Instantiate(kaiju6); kaijuEnemigo3 = Instantiate(kaiju7); ; break;
+            case 5: kaijuEnemigo1 = Instantiate(kaiju2); kaijuEnemigo2 = Instantiate(kaiju7); kaijuEnemigo3 = Instantiate(kaiju4); ; break;
+            case 6: kaijuEnemigo1 = Instantiate(kaiju6); kaijuEnemigo2 = Instantiate(kaiju6); kaijuEnemigo3 = Instantiate(kaiju6); ; break;
+            case 7: kaijuEnemigo1 = Instantiate(kaiju3); kaijuEnemigo2 = Instantiate(kaiju7); kaijuEnemigo3 = Instantiate(kaiju8); ; break;
+            case 8: kaijuEnemigo1 = Instantiate(kaiju5); kaijuEnemigo2 = Instantiate(kaiju4); kaijuEnemigo3 = Instantiate(kaiju7); ; break;
+            case 9: kaijuEnemigo1 = Instantiate(kaiju6); kaijuEnemigo2 = Instantiate(kaiju7); kaijuEnemigo3 = Instantiate(kaiju8); ; break;
+            case 10: kaijuEnemigo1 = Instantiate(kaiju4); kaijuEnemigo2 = Instantiate(kaiju5); kaijuEnemigo3 = Instantiate(kaiju8); ; break;
+            case 11: kaijuEnemigo1 = Instantiate(kaiju5); kaijuEnemigo2 = Instantiate(kaiju8); kaijuEnemigo3 = Instantiate(kaiju11); ; break;
+            case 12: kaijuEnemigo1 = Instantiate(kaiju4); kaijuEnemigo2 = Instantiate(kaiju7); kaijuEnemigo3 = Instantiate(kaiju9); ; break;
+            case 13: kaijuEnemigo1 = Instantiate(kaiju4); kaijuEnemigo2 = Instantiate(kaiju11); kaijuEnemigo3 = Instantiate(kaiju13); ; break;
+            case 14: kaijuEnemigo1 = Instantiate(kaiju8); kaijuEnemigo2 = Instantiate(kaiju9); kaijuEnemigo3 = Instantiate(kaiju12); ; break;
+            case 15: kaijuEnemigo1 = Instantiate(kaiju13); kaijuEnemigo2 = Instantiate(kaiju12); kaijuEnemigo3 = Instantiate(kaiju10); ; break;
+            default: kaijuEnemigo1 = Instantiate(kaiju1); kaijuEnemigo2 = Instantiate(kaiju1); kaijuEnemigo3 = Instantiate(kaiju2); ; break;
+        }
+        kaijuEnemigoActual = kaijuEnemigo1;
         kaijuEnemigoStats = kaijuEnemigoActual.GetComponent<Stats>();
         animatorKaijuEnemigo = kaijuEnemigoActual.GetComponent<Animator>();
         vidaActualEnemigo = kaijuEnemigoStats.HP;
@@ -254,7 +290,7 @@ public class BattleManager : Singleton<BattleManager>
         kaijuJugador.transform.position = new Vector3(0, 0, -1);
         SceneManager.LoadScene("CareScene");
 
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 
     public IEnumerator AnimAtaque(double danyoJugador,double danyoEnemigo)
