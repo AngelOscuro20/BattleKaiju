@@ -20,9 +20,11 @@ public class CareManager : Singleton<CareManager>
     public Animator animatorKaiju;
     public GameObject callCircle;
     public GameObject menupausa;
-    public bool paused = false;
     public GameObject gameManager;
+    public bool paused = false;
     public int heridas = 0;
+    bool upgradecomida1 = false;
+    bool upgradecomida2 = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,24 +66,40 @@ public class CareManager : Singleton<CareManager>
         if (callingHunger || callingTraining) { callCircle.SetActive(true); CheckCareMistake(); } else { callCircle.SetActive(false); }
 
         //Si el timer es mayor que el evolution timer,se llama al metodo de evolucion
-        if (timer > evoTime && !triedEvolving) 
+        if (timer > evoTime && !triedEvolving)
         {
             kaijuActual = null;
             bool evobool = EvolutionManager.Instance.evolution(IDKaiju);
             if (evobool)
             {
                 careMistakes = 0;
-                
+
                 animatorKaiju = kaijuActual.GetComponent<Animator>();
                 IDKaiju = kaijuActual.GetComponent<Stats>().ID;
                 evoTime = kaijuActual.GetComponent<Stats>().evolutiontime;
-                
-            } else { triedEvolving = true; }
+
+            }
+            else { triedEvolving = true; }
             Debug.Log(evobool);
             Debug.Log("ID actual =" + IDKaiju);
             Debug.Log("Evolution timer = " + evoTime);
-        } else { 
-            if (triedEvolving) Debug.Log("Ya ha intentado evolucionar"); }
+        }
+        else
+        {
+            if (triedEvolving) Debug.Log("Ya ha intentado evolucionar");
+        }
+
+        if (gameManager.GetComponent<GameManager>().ultimoNivelCompletado > 3 && !upgradecomida1)
+        {
+            CancelInvoke("HungerDrop");
+            InvokeRepeating("HungerDrop", 20, 20);
+            upgradecomida1 = true;
+        } else if (gameManager.GetComponent<GameManager>().ultimoNivelCompletado > 7 && !upgradecomida2)
+        {
+            CancelInvoke("HungerDrop");
+            InvokeRepeating("HungerDrop", 20, 20);
+            upgradecomida2 = true;
+        }
     }
 
     void HungerDrop()
@@ -179,7 +197,12 @@ public class CareManager : Singleton<CareManager>
 
     public void Train()
     {
-        if (!paused)
+        int nivel = 1;
+
+        if (gameManager.GetComponent<GameManager>().ultimoNivelCompletado > 4) { nivel++; }
+        if (gameManager.GetComponent<GameManager>().ultimoNivelCompletado > 8) { nivel++; }
+
+            if (!paused)
         {
             kaijuActual.GetComponent<Movement>().moveTo(GameObject.Find("Saco de Boxeo"));
             animatorKaiju.Play("Atacar");
@@ -190,10 +213,10 @@ public class CareManager : Singleton<CareManager>
 
                 switch (StatASubir)
                 {
-                    case 0: kaijuActual.GetComponent<Stats>().HP += subida * 10; break;
-                    case 1: kaijuActual.GetComponent<Stats>().attack += subida; break;
-                    case 2: kaijuActual.GetComponent<Stats>().Defense += subida; break;
-                    case 3: kaijuActual.GetComponent<Stats>().speed += subida; break;
+                    case 0: kaijuActual.GetComponent<Stats>().HP += subida * 10 * nivel; break;
+                    case 1: kaijuActual.GetComponent<Stats>().attack += subida * nivel; break;
+                    case 2: kaijuActual.GetComponent<Stats>().Defense += subida * nivel; break;
+                    case 3: kaijuActual.GetComponent<Stats>().speed += subida * nivel; break;
                     default:; break;
 
                 }

@@ -131,8 +131,8 @@ public class BattleManager : Singleton<BattleManager>
         
             vidaActualEnemigo = vidaActualEnemigo - (int)danyoJugador;
             vidaActualJugador = vidaActualJugador - (int)danyoEnemigo;
-        if(vidaActualEnemigo<0) {vidaActualEnemigo = 0; ronda++; cambiarKaijuEnemigo();}
-        if(vidaActualJugador<0) {vidaActualJugador = 0; peleaPerdida();} 
+        if(vidaActualEnemigo<=0) {vidaActualEnemigo = 0; ronda++; cambiarKaijuEnemigo();}
+        if(vidaActualJugador<=0) {vidaActualJugador = 0; peleaPerdida();} 
         rectTransformVidaFondo.sizeDelta = new Vector2(vidaActualJugador*2, 25);
         rectTransformVidaFondoEnemigo.sizeDelta = new Vector2(vidaActualEnemigo * 2, 25);
     }
