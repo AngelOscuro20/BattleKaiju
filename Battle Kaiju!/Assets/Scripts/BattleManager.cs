@@ -271,7 +271,7 @@ public class BattleManager : Singleton<BattleManager>
 
             case 2:kaijuEnemigo2.SetActive(true); kaijuEnemigo2.GetComponent<ParticleSystem>().Stop(); kaijuEnemigoActual = kaijuEnemigo2;break;
             case 3: kaijuEnemigo3.SetActive(true); kaijuEnemigo3.GetComponent<ParticleSystem>().Stop(); kaijuEnemigoActual = kaijuEnemigo3;break;
-            case 4: peleaPerdida();break;
+            case 4: peleaGanada();break;
             default:break;
         }
 
@@ -288,6 +288,16 @@ public class BattleManager : Singleton<BattleManager>
     }
     void peleaPerdida() {
         Debug.Log("cambiando de escena");
+        StartCoroutine(VolverACrianza());
+    }
+
+    void peleaGanada()
+    {
+        if(gameManager.GetComponent<GameManager>().nivelSeleccionado == gameManager.GetComponent<GameManager>().ultimoNivelCompletado + 1) 
+        {
+            gameManager.GetComponent<GameManager>().ultimoNivelCompletado++;
+        }
+        gameManager.GetComponent<GameManager>().nivelSeleccionado = 0;
         StartCoroutine(VolverACrianza());
     }
 
