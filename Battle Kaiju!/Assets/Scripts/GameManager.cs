@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-
+    public bool intro = false;
     TimeSpan horaReal;
     public Volume volume;
     public VolumeProfile noche;

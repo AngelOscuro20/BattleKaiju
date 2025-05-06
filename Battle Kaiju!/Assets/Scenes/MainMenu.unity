@@ -771,6 +771,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4037292314641640146, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
+      propertyPath: ultimoNivelCompletado
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9210623172180483733, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.05399726
@@ -814,35 +818,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2376843472666353935, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1183396754}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
---- !u!1 &1183396753 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2376843472666353935, guid: 3e892c14e47ccf74ca88928dec0554e6, type: 3}
-  m_PrefabInstance: {fileID: 1183396752}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1183396754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1183396753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7390ade06ddf5b84e85e8ec3fb0356bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volume: {fileID: 0}
-  noche: {fileID: 0}
-  dia: {fileID: 0}
-  tarde: {fileID: 0}
-  nivelSeleccionado: 0
-  ultimoNivelCompletado: 0
-  interLevelWaitTime: 10
 --- !u!1 &1405331717
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,6 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699f56c23ded28547a1fd29995904c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boton: {fileID: 425097087}
 --- !u!4 &1449992293
 Transform:
   m_ObjectHideFlags: 0
