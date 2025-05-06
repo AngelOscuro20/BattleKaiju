@@ -13,7 +13,9 @@ public class MenuPausaScript : MonoBehaviour
     public Sprite newImage;
     public Sprite oldImage;
     public Button botonsonido;
-
+    public GameObject careManager;
+    public GameObject cartel;
+    public GameObject lupa;
   
 
     bool musica = true;
@@ -78,12 +80,18 @@ public class MenuPausaScript : MonoBehaviour
             Time.timeScale = 1;
             menupausa.SetActive(false);
             Time.timeScale = 1;
+            careManager.GetComponent<CareManager>().paused = false;
+            cartel.GetComponent<CartelScript>().paused = false;
+            lupa.GetComponent<LupaScript>().paused = false;
         } else 
         {
             menupausa.SetActive(true);
             animator.Play("Entrada");
             yield return new WaitForSeconds(1);
             Time.timeScale = 0;
+            careManager.GetComponent<CareManager>().paused = true;
+            cartel.GetComponent<CartelScript>().paused = true;
+            lupa.GetComponent<LupaScript>().paused = true;
         }
 
         

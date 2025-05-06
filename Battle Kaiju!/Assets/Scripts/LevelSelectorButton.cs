@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class LevelSelectorButton : MonoBehaviour
@@ -25,7 +26,7 @@ public class LevelSelectorButton : MonoBehaviour
     public void OnClick()
     {
       GameManager.Instance.SetSelectedLevel(levelIndex+1);
-      GameManager.Instance.GoToNextScene();
+        SceneManager.LoadScene("BattleScene");
     }
 
 

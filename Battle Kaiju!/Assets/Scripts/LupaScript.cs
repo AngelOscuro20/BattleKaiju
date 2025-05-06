@@ -27,6 +27,7 @@ public class LupaScript : MonoBehaviour
     public Image ImagenEdf;
     public TMP_Text NombreEdf;
     public TMP_Text Descripcion;
+    public bool paused = false;
     private void OnMouseDown()
     {
         dragOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition)-transform.position;
@@ -34,8 +35,13 @@ public class LupaScript : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        if (!paused)
+        {
+            
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = mousePosition - dragOffset;
+        }
+
     }
 
     private void OnMouseUp()

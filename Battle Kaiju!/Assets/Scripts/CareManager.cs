@@ -20,6 +20,7 @@ public class CareManager : Singleton<CareManager>
     public Animator animatorKaiju;
     public GameObject callCircle;
     public GameObject menupausa;
+    public bool paused = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -161,22 +162,47 @@ public class CareManager : Singleton<CareManager>
 
     public void Eat()
     {
-        kaijuActual.GetComponent<Movement>().moveTo(GameObject.Find("Asador"));
-        animatorKaiju.Play("Comer");
-        hungerMeter++;
-        if (hungerMeter > 5) { hungerMeter = 5; }
-        Debug.Log("Hambre actual: " + hungerMeter);
-        if (callingHunger) { callingHunger = false; callCircle.SetActive(false); }
+        if (!paused)
+        {
+            kaijuActual.GetComponent<Movement>().moveTo(GameObject.Find("Asador"));
+            animatorKaiju.Play("Comer");
+            hungerMeter++;
+            if (hungerMeter > 5) { hungerMeter = 5; }
+            Debug.Log("Hambre actual: " + hungerMeter);
+            if (callingHunger) { callingHunger = false; callCircle.SetActive(false); }
+
+        }
        
     }
 
     public void Train()
     {
-        kaijuActual.GetComponent<Movement>().moveTo(GameObject.Find("Saco de Boxeo"));
-        trainingMeter++;
-        if (trainingMeter > 5) { trainingMeter = 5; }
-        Debug.Log("Barra de entrenamiento: " + trainingMeter);
-        if (callingTraining) { callingTraining = false; callCircle.SetActive(false); }
+        if (!paused)
+        {
+            kaijuActual.GetComponent<Movement>().moveTo(GameObject.Find("Saco de Boxeo"));
+            animatorKaiju.Play("Atacar");
+            if (trainingMeter < 5)
+            {
+                int StatASubir = Random.Range(0, 4);
+                int subida = Random.Range(0, 5);
+
+                switch (StatASubir)
+                {
+                    case 0: kaijuActual.GetComponent<Stats>().HP += subida * 10; break;
+                    case 1: kaijuActual.GetComponent<Stats>().attack += subida; break;
+                    case 2: kaijuActual.GetComponent<Stats>().Defense += subida; break;
+                    case 3: kaijuActual.GetComponent<Stats>().speed += subida; break;
+                    default:; break;
+
+                }
+
+            }
+            trainingMeter++;
+            if (trainingMeter > 5) { trainingMeter = 5; }
+            Debug.Log("Barra de entrenamiento: " + trainingMeter);
+            if (callingTraining) { callingTraining = false; callCircle.SetActive(false); }
+
+        }
     }
 
     public int getCareMistakes() {

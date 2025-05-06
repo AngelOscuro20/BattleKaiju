@@ -237,8 +237,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 721d187d520274047acc1ee5b63ffcc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1321,8 +1321,8 @@ MonoBehaviour:
   dia: {fileID: 11400000, guid: e35755bec6440c247ad06282a23d2def, type: 2}
   tarde: {fileID: 11400000, guid: 077fa3b5efb7787478cdb5f1aa58f41e, type: 2}
   nivelSeleccionado: 0
-  ultimoNivelCompletado: 7
-  interLevelWaitTime: 3
+  ultimoNivelCompletado: 0
+  interLevelWaitTime: 2
 --- !u!1 &265059786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,6 +1727,7 @@ MonoBehaviour:
   ImagenEdf: {fileID: 1145881284}
   NombreEdf: {fileID: 1176262586}
   Descripcion: {fileID: 1261116553}
+  paused: 0
 --- !u!61 &303028950
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1833,7 +1834,7 @@ Transform:
   m_GameObject: {fileID: 303028948}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 3, z: -1}
+  m_LocalPosition: {x: 4, y: 3.7, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4768,7 +4769,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 15e2089d5f00d2d4da2384acdaf13bb2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -4786,7 +4787,7 @@ Transform:
   m_GameObject: {fileID: 441054512}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5, y: 3.5, z: -1}
+  m_LocalPosition: {x: -4, y: 3.5, z: -1}
   m_LocalScale: {x: 0.5999051, y: 0.5999051, z: 0.5999051}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7463,7 +7464,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -7685,6 +7686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f2a22093317264eb7d7a217396b8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: 0
 --- !u!114 &1457199784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7733,6 +7735,7 @@ MonoBehaviour:
   animatorKaiju: {fileID: 0}
   callCircle: {fileID: 441054512}
   menupausa: {fileID: 1624553087}
+  paused: 0
 --- !u!4 &1505117376
 Transform:
   m_ObjectHideFlags: 0
@@ -8261,6 +8264,9 @@ MonoBehaviour:
   newImage: {fileID: 21300000, guid: c3176ba874f79e345a0a73b1b768b489, type: 3}
   oldImage: {fileID: 21300000, guid: ad0d2a92b5865a34095d5320a29f774e, type: 3}
   botonsonido: {fileID: 1404029316}
+  careManager: {fileID: 1505117374}
+  cartel: {fileID: 1457199778}
+  lupa: {fileID: 303028948}
 --- !u!95 &1624553090
 Animator:
   serializedVersion: 5
@@ -8656,7 +8662,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1654081828
 RectTransform:
@@ -8773,7 +8779,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -9142,8 +9148,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 721d187d520274047acc1ee5b63ffcc2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -9355,7 +9361,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -9489,7 +9495,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
