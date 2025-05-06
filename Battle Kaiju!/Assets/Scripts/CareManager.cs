@@ -116,7 +116,7 @@ public class CareManager : Singleton<CareManager>
             print(injuryTime);
         }
 
-        if (injuries > 5 || injuryTime > 10) { Death(); }
+        if (injuries > 5 || injuryTime > 30) { Death(); }
     }
 
     void HungerDrop()
@@ -194,6 +194,8 @@ public class CareManager : Singleton<CareManager>
             Debug.Log("Care Mistakes: " + careMistakes);
             if (callingHunger) { callingHunger = false; }
             if (callingTraining) { callingTraining = false; }
+
+            if (careMistakes % 2 == 0) { injuries++; injured = true; }
         }
     }
 

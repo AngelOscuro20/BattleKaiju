@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     SpriteRenderer spriteKaiju;
     ParticleSystem particulasPetting;
     ParticleSystem particulasInjury;
-    GameObject injuryEmitter;
+    public GameObject injuryEmitter;
     bool injured = false;
 
     private void Awake()
