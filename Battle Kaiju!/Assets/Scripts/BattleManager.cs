@@ -77,6 +77,16 @@ public class BattleManager : Singleton<BattleManager>
             case 15: kaijuEnemigo1 = Instantiate(kaiju13); kaijuEnemigo2 = Instantiate(kaiju12); kaijuEnemigo3 = Instantiate(kaiju10); ; break;
             default: kaijuEnemigo1 = Instantiate(kaiju1); kaijuEnemigo2 = Instantiate(kaiju1); kaijuEnemigo3 = Instantiate(kaiju2); ; break;
         }
+
+        kaijuEnemigo1.transform.position = new Vector2(5, -0.5f);
+        kaijuEnemigo2.transform.position = new Vector2(5, -0.5f);
+        kaijuEnemigo3.transform.position = new Vector2(5, -0.5f);
+        kaijuEnemigo1.GetComponent<Movement>().enabled = false;
+        kaijuEnemigo2.GetComponent<Movement>().enabled = false;
+        kaijuEnemigo3.GetComponent<Movement>().enabled = false;
+        kaijuEnemigo1.GetComponent<ParticleSystem>().Stop();
+        
+
         kaijuEnemigoActual = kaijuEnemigo1;
         kaijuEnemigoStats = kaijuEnemigoActual.GetComponent<Stats>();
         animatorKaijuEnemigo = kaijuEnemigoActual.GetComponent<Animator>();
@@ -85,6 +95,7 @@ public class BattleManager : Singleton<BattleManager>
         kaijuJugador.GetComponent<Movement>().enabled = false;
         kaijuJugador.transform.position = new Vector3(-5f,-0.5f,-1f);
         kaijuJugador.GetComponent<SpriteRenderer>().flipX = true;
+        kaijuJugador.GetComponent<ParticleSystem>().Stop();
 
         rectTransformVidaMarco = GameObject.FindGameObjectWithTag("VidaMarco").GetComponent<RectTransform>();
         rectTransformVidaFondo = GameObject.FindGameObjectWithTag("VidaFondo").GetComponent<RectTransform>();
@@ -97,7 +108,7 @@ public class BattleManager : Singleton<BattleManager>
         rectTransformVidaFondoEnemigo.sizeDelta = new Vector2(vidaActualEnemigo * 2, 25);
 
         kaijuEnemigoActual = kaijuEnemigo1;
-
+        
         kaijuEnemigo2.SetActive(false);
         kaijuEnemigo3.SetActive(false);
     }
@@ -258,8 +269,8 @@ public class BattleManager : Singleton<BattleManager>
         kaijuEnemigoActual = null;
         switch (ronda) {
 
-            case 2:kaijuEnemigo2.SetActive(true); kaijuEnemigoActual = kaijuEnemigo2;break;
-            case 3: kaijuEnemigo3.SetActive(true); kaijuEnemigoActual = kaijuEnemigo3;break;
+            case 2:kaijuEnemigo2.SetActive(true); kaijuEnemigo2.GetComponent<ParticleSystem>().Stop(); kaijuEnemigoActual = kaijuEnemigo2;break;
+            case 3: kaijuEnemigo3.SetActive(true); kaijuEnemigo3.GetComponent<ParticleSystem>().Stop(); kaijuEnemigoActual = kaijuEnemigo3;break;
             case 4: peleaPerdida();break;
             default:break;
         }
@@ -297,14 +308,14 @@ public class BattleManager : Singleton<BattleManager>
     {
         animatorKaijuJugador.Play("Atacar");
         yield return new WaitForSeconds(1);
-        kaijuJugador.transform.position = kaijuJugador.transform.position +  new Vector3(2,1,0);
+        kaijuJugador.transform.position = kaijuJugador.transform.position +  new Vector3(2,0,0);
         yield return new WaitForSeconds(1);
-        kaijuJugador.transform.position = kaijuJugador.transform.position + new Vector3(-2, -1, 0);
+        kaijuJugador.transform.position = kaijuJugador.transform.position + new Vector3(-2,0, 0);
         animatorKaijuEnemigo.Play("Atacar");
         yield return new WaitForSeconds(1);
-        kaijuEnemigoActual.transform.position = kaijuEnemigoActual.transform.position + new Vector3(-2, -1, 0);
+        kaijuEnemigoActual.transform.position = kaijuEnemigoActual.transform.position + new Vector3(-2,0, 0);
         yield return new WaitForSeconds(1);
-        kaijuEnemigoActual.transform.position = kaijuEnemigoActual.transform.position + new Vector3(2,1,0);
+        kaijuEnemigoActual.transform.position = kaijuEnemigoActual.transform.position + new Vector3(2,0,0);
         Debug.Log("Daño jugador =" + danyoJugador);
         Debug.Log("Daño enemigo =" + danyoEnemigo);
         restarVida(danyoJugador, danyoEnemigo);

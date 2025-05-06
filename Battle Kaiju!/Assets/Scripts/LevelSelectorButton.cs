@@ -14,13 +14,13 @@ public class LevelSelectorButton : MonoBehaviour
     public void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        if (levelIndex > gameManager.GetComponent<GameManager>().ultimoNivelCompletado) { this.GetComponent<Button>().interactable = false; }
     }
     public void SetLevelIndex(int index)
     {
         levelIndex = index;
         text.SetText((index + 1).ToString());
         print(GameManager.Instance.ultimoNivelCompletado - 1);
-        if (levelIndex > gameManager.GetComponent<GameManager>().ultimoNivelCompletado) { this.GetComponent<Button>().interactable = false; }
     }
     public void OnClick()
     {
