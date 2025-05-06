@@ -25,6 +25,8 @@ public class CareManager : Singleton<CareManager>
     public int heridas = 0;
     bool upgradecomida1 = false;
     bool upgradecomida2 = false;
+    public bool injured = false;
+    int injuries = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +101,11 @@ public class CareManager : Singleton<CareManager>
             CancelInvoke("HungerDrop");
             InvokeRepeating("HungerDrop", 20, 20);
             upgradecomida2 = true;
+        }
+
+        if (injured) 
+        {
+            kaijuActual.GetComponent<Movement>().Injured();
         }
     }
 
@@ -235,6 +242,8 @@ public class CareManager : Singleton<CareManager>
     {
         if (!paused){
             kaijuActual.GetComponent<Movement>().moveTo(GameObject.Find("Botiquin"));
+            kaijuActual.GetComponent<Movement>().Injured();
+            injured = false;
         }
     }
     public int getCareMistakes() {

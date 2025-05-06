@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -14,6 +16,9 @@ public class Movement : MonoBehaviour
     float animspeed;
     SpriteRenderer spriteKaiju;
     ParticleSystem particulasPetting;
+    ParticleSystem particulasInjury;
+    GameObject injuryEmitter;
+    bool injured = false;
 
     private void Awake()
     {
@@ -27,17 +32,21 @@ public class Movement : MonoBehaviour
         animator = this.GetComponent<Animator>();
         spriteKaiju = this.GetComponent<SpriteRenderer>();
         particulasPetting = this.GetComponent<ParticleSystem>();
+        injuryEmitter = GameObject.Find("InjuryEmitter");
+        particulasInjury = injuryEmitter.GetComponent<ParticleSystem>();
         particulasPetting.Pause();
+        particulasInjury.Pause();
     }
 
     // Update is called once per frame
     void Update()
     {
+     if(enabled)injuryEmitter.transform.position = this.transform.position - new Vector3(0,1,0);
     }
 
     private void Wander() {
         
-        if (!petting && enabled)
+        if (!petting && !injured && enabled)
         {
             randomDirCall();
             switch (Dir)
@@ -63,7 +72,7 @@ public class Movement : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(enabled) {
+        if(enabled && !injured) {
         petting = true;
         Debug.Log("Petting");
         rg2d.AddForce(transform.right * 0.4f);
@@ -90,6 +99,19 @@ public class Movement : MonoBehaviour
             if (hacia.x < 0) { spriteKaiju.flipX = false; } else { spriteKaiju.flipX = true; }
             StartCoroutine(Wait());
         }
+    }
+
+    public void Injured() 
+    {
+        particulasInjury.Play();
+        particulasPetting.Stop();
+        injured = true;
+    }
+
+    public void Healed()
+    {
+        particulasInjury.Stop();
+        injured = false;
     }
 
     IEnumerator Wait() { yield return new WaitForSeconds(3); }
