@@ -1320,8 +1320,8 @@ MonoBehaviour:
   noche: {fileID: 11400000, guid: a3d526d25643eaf40851bafe1251f9a4, type: 2}
   dia: {fileID: 11400000, guid: e35755bec6440c247ad06282a23d2def, type: 2}
   tarde: {fileID: 11400000, guid: 077fa3b5efb7787478cdb5f1aa58f41e, type: 2}
-  nivelSeleccionado: 10
-  ultimoNivelCompletado: 10
+  nivelSeleccionado: 0
+  ultimoNivelCompletado: 7
   interLevelWaitTime: 3
 --- !u!1 &265059786
 GameObject:
