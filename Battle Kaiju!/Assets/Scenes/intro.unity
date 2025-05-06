@@ -552,6 +552,8 @@ GameObject:
   m_Component:
   - component: {fileID: 809216471}
   - component: {fileID: 809216470}
+  - component: {fileID: 809216473}
+  - component: {fileID: 809216472}
   m_Layer: 0
   m_Name: timeline
   m_TagString: Untagged
@@ -573,7 +575,9 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: 5125859698958924687, guid: c3b2e908d0049a5429cf718bdbe372cf, type: 2}
+    value: {fileID: 809216472}
   m_ExposedReferences:
     m_References:
     - dac372303d44a8d4ba59851a54ee733a: {fileID: 1993534234}
@@ -587,6 +591,7 @@ PlayableDirector:
     - 8347c2ccef21d8a4ca4d23ce5c6d3336: {fileID: 1993534234}
     - f7dd327fd8b71da4189c04ce6d9eb003: {fileID: 400216808}
     - db0267a54520db847943687025f616dd: {fileID: 176729514}
+    - 2641f298f3c07784685095e1d13edb26: {fileID: 2113712862}
     - e8a6912549a83b3419951457285eab59: {fileID: 2076556275}
     - b75f988a19a9b58428b82cf880179d9c: {fileID: 2113712862}
 --- !u!4 &809216471
@@ -604,6 +609,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &809216472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809216469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: bd4706d90edd4b04784f8e9637ab3b4e, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 809216473}
+          m_TargetAssemblyTypeName: timelinescript, Assembly-CSharp
+          m_MethodName: Trigger
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+--- !u!114 &809216473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809216469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd74f6417eb488f489e45a184449513f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1695653266
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1993534235
 SpriteRenderer:
   m_ObjectHideFlags: 0
