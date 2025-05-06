@@ -1316,6 +1316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7390ade06ddf5b84e85e8ec3fb0356bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intro: 0
   volume: {fileID: 0}
   noche: {fileID: 11400000, guid: a3d526d25643eaf40851bafe1251f9a4, type: 2}
   dia: {fileID: 11400000, guid: e35755bec6440c247ad06282a23d2def, type: 2}
@@ -1484,8 +1485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nombre: Entrenamiento
-  descripcion: Tu kaiju necesita entrenar para ponerse fuerte en el torneo! Pulsa
-    este edificio para que entrene
+  descripcion: Tu kaiju necesita entrenar para ponerse fuerte para el torneo! Pulsa
+    este edificio para que entrene.
 --- !u!1 &300061664
 GameObject:
   m_ObjectHideFlags: 0
@@ -4770,7 +4771,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 15e2089d5f00d2d4da2384acdaf13bb2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -7920,6 +7921,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
+  Sprite1: {fileID: 21300000, guid: 5fd5b89795610cb41bf669b2a3fea6fd, type: 3}
+  Sprite2: {fileID: 21300000, guid: 5f62c27033bdbca468b9e37792d2042d, type: 3}
+  gameManager: {fileID: 0}
 --- !u!114 &1457199784
 MonoBehaviour:
   m_ObjectHideFlags: 0
