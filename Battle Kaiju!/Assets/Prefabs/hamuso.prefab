@@ -141,7 +141,7 @@ MonoBehaviour:
   tipo: 2
   evolutiontime: 200
   attack: 30
-  HP: 10
+  HP: 25
   Defense: 30
   speed: 10
 --- !u!198 &-1709031455386686557

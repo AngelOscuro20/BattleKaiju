@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CareManager : Singleton<CareManager>
 {
     
     float timer = 0;
     float callTime;
+    public float injuryTime;
     int careMistakes = 0;
     int stage;
     int hungerMeter = 5;
@@ -16,22 +18,27 @@ public class CareManager : Singleton<CareManager>
     float evoTime = 100000;
     int IDKaiju;
     bool triedEvolving = false;
+    public GameObject borosu;
     public GameObject kaijuActual;
     public Animator animatorKaiju;
     public GameObject callCircle;
     public GameObject menupausa;
     public GameObject gameManager;
     public bool paused = false;
-    public int heridas = 0;
     bool upgradecomida1 = false;
     bool upgradecomida2 = false;
     public bool injured = false;
-    int injuries = 0;
+    public int injuries = 0;
     // Start is called before the first frame update
+
+   
+
     void Start()
     {
+        menupausa = GameObject.FindGameObjectWithTag("MenuPausa");
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
         callCircle.SetActive(false);
+        menupausa.SetActive(false);
         //Buscamos el kaiju actual, su id y su tiempo de evolución
         kaijuActual = GameObject.FindGameObjectWithTag("kaiju");
         animatorKaiju = kaijuActual.GetComponent<Animator>();
@@ -53,7 +60,7 @@ public class CareManager : Singleton<CareManager>
     // Update is called once per frame
     void Update()
     {
-
+        
         if (Input.GetKeyDown(KeyCode.C)) { careMistakes++; Debug.Log("Care Mistakes: " + careMistakes); }
         if (Input.GetKeyDown(KeyCode.T)) { timer += 10; Debug.Log("Timer: " + timer); }
 
@@ -106,7 +113,11 @@ public class CareManager : Singleton<CareManager>
         if (injured) 
         {
             kaijuActual.GetComponent<Movement>().Injured();
+            injuryTime += Time.deltaTime;
+            print(injuryTime);
         }
+
+        if (injuries > 5 || injuryTime > 10) { Death(); }
     }
 
     void HungerDrop()
@@ -260,6 +271,20 @@ public class CareManager : Singleton<CareManager>
         return trainingMeter;
     }
 
+    void Death() 
+    {
+        injured = false;
+        injuries = 0;
+        injuryTime = 0;
+        timer = 0;
+        Destroy(kaijuActual);
+        GameObject borosuNuevo = Instantiate<GameObject>(borosu);
+        borosuNuevo.transform.position = new Vector3(0,0,-1);
+        setKaijuActual(borosuNuevo);
+        EvolutionManager.Instance.setKaijuActual(borosuNuevo);
+        
+        
+    }
 
     public void setKaijuActual(GameObject kaijuNuevo) {
         Debug.Log("Seteando nuevo kaiju");

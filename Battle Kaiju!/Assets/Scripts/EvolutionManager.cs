@@ -150,6 +150,11 @@ public class EvolutionManager : Singleton<EvolutionManager>
         
     }
 
+    public void setKaijuActual(GameObject kaijuNuevo)
+    {
+        Debug.Log("Seteando nuevo kaiju");
+        kaijuActual = kaijuNuevo;
+        animatorKaiju = kaijuNuevo.GetComponent<Animator>();
+    }
 
-    
 }

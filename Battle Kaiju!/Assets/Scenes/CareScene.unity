@@ -4791,7 +4791,7 @@ Transform:
   m_GameObject: {fileID: 441054512}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 3.5, z: -1}
+  m_LocalPosition: {x: 0.63, y: 3.5, z: -1}
   m_LocalScale: {x: 0.5999051, y: 0.5999051, z: 0.5999051}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5523,7 +5523,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1192993891247448548, guid: cffdf1696445cbd4c9726cfa145f9fc0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2041030224}
   m_SourcePrefab: {fileID: 100100000, guid: cffdf1696445cbd4c9726cfa145f9fc0, type: 3}
 --- !u!114 &709892266
 MonoBehaviour:
@@ -7957,14 +7960,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50fd4244024d6c0478f7b680f248a82a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  injuryTime: 0
+  borosu: {fileID: 5953548915059394347, guid: 46ce0879676d9a64cb64ca30aab32b63, type: 3}
   kaijuActual: {fileID: 0}
   animatorKaiju: {fileID: 0}
   callCircle: {fileID: 441054512}
   menupausa: {fileID: 1624553087}
   gameManager: {fileID: 0}
   paused: 0
-  heridas: 0
   injured: 0
+  injuries: 0
 --- !u!4 &1505117376
 Transform:
   m_ObjectHideFlags: 0
@@ -8446,7 +8451,7 @@ GameObject:
   - component: {fileID: 1624553090}
   m_Layer: 5
   m_Name: OrganizadorMenuPausa
-  m_TagString: Untagged
+  m_TagString: MenuPausa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9896,6 +9901,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2041030223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1192993891247448548, guid: cffdf1696445cbd4c9726cfa145f9fc0, type: 3}
+  m_PrefabInstance: {fileID: 642364330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2041030224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041030223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2b3314d46161a4bbb25c2a11c0e45c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2070333109
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,9 +22,10 @@ public class MenuPausaScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        menupausa.SetActive(false);
+        careManager = GameObject.FindGameObjectWithTag("CareManager");
+        careManager.GetComponent<CareManager>().menupausa = this.gameObject;
         animator = this.GetComponent<Animator>();
-       
+       this.gameObject.SetActive(false);
     }
 
     private void Update()

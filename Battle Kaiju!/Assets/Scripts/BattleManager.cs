@@ -288,6 +288,8 @@ public class BattleManager : Singleton<BattleManager>
     }
     void peleaPerdida() {
         Debug.Log("cambiando de escena");
+        GameObject.FindGameObjectWithTag("CareManager").GetComponent<CareManager>().injured = true;
+        GameObject.FindGameObjectWithTag("CareManager").GetComponent<CareManager>().injuries++;
         StartCoroutine(VolverACrianza());
     }
 
