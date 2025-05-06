@@ -101,7 +101,7 @@ public class LupaScript : MonoBehaviour
             else if (other.CompareTag("edificio"))
             {
                 ImagenEdf.sprite = other.gameObject.GetComponent<SpriteRenderer>().sprite;
-                NombreEdf.text = other.gameObject.GetComponent<EdificioInfo>().name;
+                NombreEdf.text = other.gameObject.GetComponent<EdificioInfo>().Nombre;
                 Descripcion.text = other.gameObject.GetComponent<EdificioInfo>().descripcion;
                 if (transform.position.x > 0)
                 {

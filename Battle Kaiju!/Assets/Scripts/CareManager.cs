@@ -21,10 +21,12 @@ public class CareManager : Singleton<CareManager>
     public GameObject callCircle;
     public GameObject menupausa;
     public bool paused = false;
+    public GameObject gameManager;
+    public int heridas = 0;
     // Start is called before the first frame update
     void Start()
     {
-       
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
         callCircle.SetActive(false);
         //Buscamos el kaiju actual, su id y su tiempo de evolución
         kaijuActual = GameObject.FindGameObjectWithTag("kaiju");
