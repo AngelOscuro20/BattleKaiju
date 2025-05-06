@@ -253,6 +253,7 @@ public class CareManager : Singleton<CareManager>
     
     {
         if (!paused){
+            kaijuActual.GetComponent<Movement>().enabled = true;
             kaijuActual.GetComponent<Movement>().moveTo(GameObject.Find("Botiquin"));
             kaijuActual.GetComponent<Movement>().Healed();
             injured = false;

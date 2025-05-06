@@ -8,7 +8,7 @@ public class Emitter : Singleton<Emitter>
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.FindGameObjectWithTag("Kaiju").GetComponent<Movement>().injuryEmitter = this.gameObject;
+        GameObject.FindGameObjectWithTag("kaiju").GetComponent<Movement>().injuryEmitter = this.gameObject;
     }
 
     // Update is called once per frame

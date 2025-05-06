@@ -22,6 +22,7 @@ public class BotiquinScript : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (gameManager.GetComponent<GameManager>().ultimoNivelCompletado > 2) { CareManager.Instance.Heal(); }
+        print(gameManager.GetComponent<GameManager>().ultimoNivelCompletado);
+        if (gameManager.GetComponent<GameManager>().ultimoNivelCompletado > 0) { print("Hola"); CareManager.Instance.Heal(); }
     }
 }
