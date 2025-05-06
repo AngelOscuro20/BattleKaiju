@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -105,12 +104,14 @@ public class Movement : MonoBehaviour
     {
         particulasInjury.Play();
         particulasPetting.Stop();
+        particulasPetting.Clear();
         injured = true;
     }
 
     public void Healed()
     {
         particulasInjury.Stop();
+        particulasInjury.Clear();
         injured = false;
     }
 

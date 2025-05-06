@@ -5480,6 +5480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InjuryEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 3896914100071854718, guid: cffdf1696445cbd4c9726cfa145f9fc0, type: 3}
+      propertyPath: stopAction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4440657337460377881, guid: cffdf1696445cbd4c9726cfa145f9fc0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.61
@@ -7965,7 +7969,7 @@ MonoBehaviour:
   kaijuActual: {fileID: 0}
   animatorKaiju: {fileID: 0}
   callCircle: {fileID: 441054512}
-  menupausa: {fileID: 1624553087}
+  menupausa: {fileID: 0}
   gameManager: {fileID: 0}
   paused: 0
   injured: 0

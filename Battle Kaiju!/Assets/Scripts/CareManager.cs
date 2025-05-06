@@ -38,7 +38,6 @@ public class CareManager : Singleton<CareManager>
         menupausa = GameObject.FindGameObjectWithTag("MenuPausa");
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
         callCircle.SetActive(false);
-        menupausa.SetActive(false);
         //Buscamos el kaiju actual, su id y su tiempo de evolución
         kaijuActual = GameObject.FindGameObjectWithTag("kaiju");
         animatorKaiju = kaijuActual.GetComponent<Animator>();
@@ -253,7 +252,7 @@ public class CareManager : Singleton<CareManager>
     {
         if (!paused){
             kaijuActual.GetComponent<Movement>().moveTo(GameObject.Find("Botiquin"));
-            kaijuActual.GetComponent<Movement>().Injured();
+            kaijuActual.GetComponent<Movement>().Healed();
             injured = false;
         }
     }
@@ -277,6 +276,7 @@ public class CareManager : Singleton<CareManager>
         injuries = 0;
         injuryTime = 0;
         timer = 0;
+        kaijuActual.GetComponent<Movement>().Healed();
         Destroy(kaijuActual);
         GameObject borosuNuevo = Instantiate<GameObject>(borosu);
         borosuNuevo.transform.position = new Vector3(0,0,-1);
