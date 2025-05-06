@@ -230,6 +230,13 @@ public class CareManager : Singleton<CareManager>
         }
     }
 
+    public void Heal() 
+    
+    {
+        if (!paused){
+            kaijuActual.GetComponent<Movement>().moveTo(GameObject.Find("Botiquin"));
+        }
+    }
     public int getCareMistakes() {
     return careMistakes;
     }

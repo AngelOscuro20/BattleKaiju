@@ -8,6 +8,11 @@ public class EntrenarScript : MonoBehaviour
     public Sprite Sprite2;
     public Sprite Sprite3;
     public GameObject gameManager;
+
+    private void Start()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+    }
     private void Update()
     {
         if (gameManager.GetComponent<GameManager>().ultimoNivelCompletado > 4) { this.GetComponent<SpriteRenderer>().sprite = Sprite2; }
